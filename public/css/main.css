@@ -1,0 +1,42 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevents any unwanted scrollbars */
+}
+
+.bg-image {
+    height: 100vh; /* Full height of the viewport */
+}
+
+.gradient-custom-3 {
+    background: linear-gradient(to right, rgba(27, 113, 161, 0.5), rgba(40, 55, 121, 0.5));
+    height: 100%;
+}
+
+.gradient-custom-4 {
+/* fallback for old browsers */
+background: #1B71A1;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to right, rgba(27, 113, 161, 1), rgba(40, 55, 121, 0.5));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to right, rgba(27, 113, 161, 1), rgba(40, 55, 121, 0.5))
+}
+
+@media (max-width: 768px) {
+    .card {
+        max-width: 90%; /* Constrain the form width */
+        margin: 20px auto; /* Center the form horizontally and add margin vertically */
+        max-height: 80vh; /* Limit the height of the form */
+        overflow: scroll; /* Prevent content from overflowing */
+    }
+
+    .card-body {
+        padding: 1rem; /* Reduce padding inside the form */
+        height: 100%; /* Full height within the card */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+}
