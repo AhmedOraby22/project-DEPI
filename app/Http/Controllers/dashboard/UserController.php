@@ -21,8 +21,10 @@ class UserController extends Controller
      * param Request $request
      * get all user to manage it
      */
-    public function index()
+    public function index(Request $request)
     {
+        $perPage = $request->perPage ?? 10;
+        $users = User::where('is_admin',1)->paginate($perPage);
         return view('dashboard.user.index', ['users' => $users]);
     }
 
@@ -34,6 +36,10 @@ class UserController extends Controller
     public function store(CreateRequest $request)
     {
         $user = new User();
+        if (isset($request->password)) {
+            $request->merge(['password' => Hash::make($request->password)]);
+        }
+        $request->merge(['is_admin' => 1]);
         $data = $user->create($request->all());
         if($data)
         {
@@ -50,6 +56,7 @@ class UserController extends Controller
     public function update(EditRequest $request, $id)
     {
         $user = User::find($id);
+        $request->merge(['is_admin' => 1]);
         $data = $user->update($request->all());
         if($data)
         {
