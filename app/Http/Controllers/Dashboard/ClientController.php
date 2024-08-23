@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\Client\EditRequest;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
 /**
  * controller user about web function
