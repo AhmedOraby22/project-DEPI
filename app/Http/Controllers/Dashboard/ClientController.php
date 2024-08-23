@@ -13,7 +13,7 @@ class ClientController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth','admin');
     }
 
     /**
@@ -38,9 +38,9 @@ class ClientController extends Controller
         $data = $user->update($request->all());
         if($data)
         {
-            return redirect(route('client.edit', $id))->with("message", 'Done');
+            return redirect(route('dashboard.client.edit', $id))->with("message", 'Done');
         }
-        return redirect(route('client.edit', $id))->with('problem');
+        return redirect(route('dashboard.client.edit', $id))->with('message_false','problem');
     }
 
     public function delete($id)
@@ -49,8 +49,8 @@ class ClientController extends Controller
         if($data)
         {
             $data->delete();
-            return redirect(route('client.index'))->with("message", 'Done');
+            return redirect(route('dashboard.client.index'))->with("message", 'Done');
         }
-        return redirect(route('client.index'))->with('problem');
+        return redirect(route('dashboard.client.index'))->with('message_false','problem');
     }
 }

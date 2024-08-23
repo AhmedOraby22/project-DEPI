@@ -16,7 +16,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth','admin');
     }
 
     /**
@@ -45,9 +45,9 @@ class UserController extends Controller
         $data = $user->create($request->all());
         if($data)
         {
-            return redirect(route('user.index'))->with('Done');
+            return redirect(route('dashboard.user.index'))->with("message", 'Done');
         }
-        return redirect(route('user.create'))->with('problem');
+        return redirect(route('dashboard.user.create'))->with('message_false','problem');
     }
 
     public function edit($id)
@@ -62,9 +62,9 @@ class UserController extends Controller
         $data = $user->update($request->all());
         if($data)
         {
-            return redirect(route('user.edit', $id))->with("message", 'Done');
+            return redirect(route('dashboard.user.edit', $id))->with("message", 'Done');
         }
-        return redirect(route('user.edit', $id))->with('problem');
+        return redirect(route('dashboard.user.edit', $id))->with('message_false','problem');
     }
 
     public function profile($id)
@@ -79,8 +79,8 @@ class UserController extends Controller
         if($data)
         {
             $data->delete();
-            return redirect(route('user.index'))->with("message", 'Done');
+            return redirect(route('dashboard.user.index'))->with("message", 'Done');
         }
-        return redirect(route('user.index'))->with('problem');
+        return redirect(route('dashboard.user.index'))->with('message_false','problem');
     }
 }

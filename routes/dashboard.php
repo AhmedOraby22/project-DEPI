@@ -16,9 +16,9 @@ Route::group(['middleware' => 'admin', 'auth'], function()
             Route::get('{id}', 'profile')->name('profile');
         }
     );
-    Route::resource('client', ClientController::class, ['except' => ['show', 'update']])
+    Route::resource('client', ClientController::class, ['except' => ['create','store','show', 'update']])
         ->parameters(['client' => 'id']);
-    Route::controller(ClientController::class)->prefix('/user')->name('user.')->group(
+    Route::controller(ClientController::class)->prefix('/client')->name('client.')->group(
         function()
         {
             Route::post('changeStatus', 'changeStatus')->name('changeStatus');
