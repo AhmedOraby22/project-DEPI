@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('status')->default(1);
             $table->string('phone')->unique();
             $table->string('rate')->default(0)->nullable();
-            $table->string('gender')->default(0)->nullable();
+            $table->string('gender')->default(1)->nullable();
             $table->string('birthdate')->nullable();
             $table->string('is_admin')->default(0);
             $table->timestamps();
