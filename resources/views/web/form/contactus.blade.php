@@ -14,9 +14,7 @@
         </div>
     </div>
     <!-- end of .container-->
-
 </section>
-<!-- <section> close ============================-->
 <!-- ============================================-->
 <section class="py-8">
     <div class="container">
@@ -35,7 +33,6 @@
                         <input class="form-control form-livedoc-control" id="inputPhone" type="text"
                             placeholder="Phone" />
                     </div>
-
                     <div class="col-md-12">
                         <label class="form-label visually-hidden" for="inputEmail">Email</label>
                         <input class="form-control form-livedoc-control" id="inputEmail" type="email"
