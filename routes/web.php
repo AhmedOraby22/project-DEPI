@@ -18,3 +18,10 @@ Route::get('/profile', function () {
 Route::get('/contactus', function () {
     return view('web.form.contactus');
 });
+Route::get('/adminlogin', function () {
+    return view('dashboard.adminlogin');
+});
+
+// Route::group(['middleware' => 'auth'], function () {
+//     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+// });
