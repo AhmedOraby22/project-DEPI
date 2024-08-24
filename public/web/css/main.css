@@ -3,7 +3,7 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-    overflow: hidden; /* Prevents any unwanted scrollbars */
+    /* Prevents any unwanted scrollbars */
 }
 
 
@@ -49,25 +49,6 @@ background: linear-gradient(to right, rgba(27, 113, 161, 1), rgba(40, 55, 121, 0
     border-color: #BA68C8
 }
 
-.profile-button {
-    background: rgb(99, 39, 120);
-    box-shadow: none;
-    border: none
-}
-
-.profile-button:hover {
-    background: #682773
-}
-
-.profile-button:focus {
-    background: #682773;
-    box-shadow: none
-}
-
-.profile-button:active {
-    background: #682773;
-    box-shadow: none
-}
 
 .back:hover {
     color: #682773;
@@ -78,9 +59,128 @@ background: linear-gradient(to right, rgba(27, 113, 161, 1), rgba(40, 55, 121, 0
     font-size: 11px
 }
 
-.add-experience:hover {
-    background: #BA68C8;
-    color: #fff;
-    cursor: pointer;
-    border: solid 1px #BA68C8
+.form-livedoc-control {
+  border: 1px solid rgba(13, 175, 202, 0.2);
+  border-radius: 1.25rem;
+  color: #000;
+  font-weight: 300;
+  background-color: #FFFEFE;
+  padding: .95rem .95rem;
+}
+
+.form-livedoc-control:focus {
+  color: #464558;
+  font-weight: 700;
+  background-color: rgba(13, 175, 202, 0.08);
+  border: 2px solid rgba(40, 55, 121, 0.8);
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+
+input, button, select, optgroup, textarea, label, .alert, .badge, .blockquote-footer, .btn, .navbar, .pagination, .valid-feedback, .invalid-feedback {
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.rounded-pill {
+    border-radius: 50rem !important;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #1B71A1;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.875rem 2.5rem;
+  font-size: 1rem;
+  border-radius: 0.2rem;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+}
+
+.btn:hover {
+  color: #1B71A1;
+  text-decoration: none;
+}
+
+.btn-check:focus + .btn, .btn:focus {
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn:disabled, .btn.disabled,
+fieldset:disabled .btn {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.btn-primary {
+  color: #FFFEFE;
+  background-color: #283779;
+  border-color: #283779;
+}
+
+.btn-primary:hover {
+  color: #FFFEFE;
+  background-color: #222f67;
+  border-color: #202c61;
+}
+
+.btn-check:focus + .btn-primary, .btn-primary:focus {
+  color: #FFFEFE;
+  background-color: #222f67;
+  border-color: #202c61;
+  -webkit-box-shadow: 0 0 0 0 rgba(72, 85, 141, 0.5);
+  box-shadow: 0 0 0 0 rgba(72, 85, 141, 0.5);
+}
+
+.btn-check:checked + .btn-primary,
+.btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  color: #FFFEFE;
+  background-color: #202c61;
+  border-color: #1e295b;
+}
+
+.btn-check:checked + .btn-primary:focus,
+.btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0 rgba(72, 85, 141, 0.5);
+  box-shadow: 0 0 0 0 rgba(72, 85, 141, 0.5);
+}
+
+.btn-primary:disabled, .btn-primary.disabled {
+  color: #FFFEFE;
+  background-color: #283779;
+  border-color: #283779;
+}
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 0px;
+    margin-bottom: 0.5rem;
+    font-family: "Fjalla One", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 700;
+    line-height: 1.2;
+    color: rgb(40, 55, 121);
 }
