@@ -1,23 +1,37 @@
-<!-- errors -->
-@if(count($errors)>0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{$error}}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 @if(session()->has('message'))
-    <div class="alert alert-success" align="center">
-        {{ session()->get('message')  }}
-    </div>
+    <script>
+        //Notify
+        $.notify({
+            icon: 'icon-bell',
+            title: 'success',
+            message: '{{ session()->get('message')  }}',
+        },{
+            type: 'success',
+            placement: {
+                from: "bottom",
+                align: "right"
+            },
+            time: 1000,
+        });
+    </script>
     @php
         session()->forget('message');
     @endphp@elseif(session()->has('message_false'))
-    <div class="alert alert-danger" align="center">
-        {{ session()->get('message_false') }}
-    </div>
+    <script>
+        //Notify
+        $.notify({
+            icon: 'icon-bell',
+            title: 'problem',
+            message: '{{ session()->get('message_false')  }}',
+        },{
+            type: 'danger',
+            placement: {
+                from: "bottom",
+                align: "right"
+            },
+            time: 1000,
+        });
+    </script>
     @php
         session()->forget('message_false');
     @endphp
