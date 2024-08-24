@@ -14,3 +14,7 @@ Route::get('/login', function () {
 Route::get('/profile', function () {
     return view('web.auth.profile');
 });
+
+Route::get('/contactus', function () {
+    return view('web.form.contactus');
+});
