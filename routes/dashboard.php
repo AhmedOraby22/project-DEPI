@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\ClientController;
 
+Route::get('/home', function () {
+    return view('dashboard.home');
+});
+
 Route::group(['middleware' => 'admin', 'auth'], function()
 {
     Route::resource('user', UserController::class, ['except' => ['show', 'update']])

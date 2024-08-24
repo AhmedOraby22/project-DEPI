@@ -37,7 +37,7 @@ const modalShowcase = `
 								</div>
 							</div>
 							<a href="../../documentation/index.html" class="btn btn-primary w-100 mb-3">Documentation</a>
-							<a href="https://kaiadmin.themekita.com/" class="btn btn-secondary w-100">Buy Now</a>
+							<a href="https://kaiadmin.themekita.com/" class="btn btn-danger w-100">Buy Now</a>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-4">
@@ -189,7 +189,7 @@ Circles.create({
 	styleText:    true
 })
 
-//Notify
+/*//Notify
 $.notify({
 	icon: 'icon-bell',
 	title: 'Kaiadmin',
@@ -201,7 +201,7 @@ $.notify({
 		align: "right"
 	},
 	time: 1000,
-});
+});*/
 
 // Jsvectormap
 var world_map = new jsVectorMap({
