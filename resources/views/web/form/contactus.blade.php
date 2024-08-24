@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row">
             <!--/.bg-holder-->
-            <div class="col-lg-6 z-index-2 mb-5"><img class="w-100" src="image/contactimg.png" alt="..." /></div>
+            <div class="col-lg-6 z-index-2 mb-5"><img class="w-100" src="web/image/contactimg.png" alt="..." /></div>
             <div class="col-lg-6 z-index-2">
                 <form class="row g-3">
                     <div class="col-md-6">
