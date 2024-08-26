@@ -52,17 +52,14 @@
                                     <div class="u-text">
                                         <h4>Hizrian</h4>
                                         <p class="text-muted">hello@example.com</p>
-                                        <a
-                                                href="profile.html"
-                                                class="btn btn-xs btn-secondary btn-sm"
-                                        >View Profile</a
-                                        >
+                                        <a href="{{ url('/admin/profile') }}" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">My Profile</a>
+                                <a class="dropdown-item" href="{{ url('/admin/profile') }}" >My Profile</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Logout</a>
                             </li>

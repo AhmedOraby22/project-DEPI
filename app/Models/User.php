@@ -37,4 +37,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    use Notifiable;
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 }
