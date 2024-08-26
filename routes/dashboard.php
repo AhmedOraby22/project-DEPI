@@ -5,7 +5,7 @@ use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\ClientController;
 
 Route::get('/home', function () {
-    return view('dashboard.layouts.app');
+    return view('dashboard.home');
 });
 
 Route::group(['middleware' => 'admin', 'auth'], function()

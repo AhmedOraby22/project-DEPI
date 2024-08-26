@@ -14,15 +14,13 @@
         </div>
     </div>
     <!-- end of .container-->
-
 </section>
-<!-- <section> close ============================-->
 <!-- ============================================-->
 <section class="py-8">
     <div class="container">
         <div class="row">
             <!--/.bg-holder-->
-            <div class="col-lg-6 z-index-2 mb-5"><img class="w-100" src="image/contactimg.png" alt="..." /></div>
+            <div class="col-lg-6 z-index-2 mb-5"><img class="w-100" src="web_asset/image/contactimg.png" alt="..." /></div>
             <div class="col-lg-6 z-index-2">
                 <form class="row g-3">
                     <div class="col-md-6">
@@ -35,7 +33,6 @@
                         <input class="form-control form-livedoc-control" id="inputPhone" type="text"
                             placeholder="Phone" />
                     </div>
-
                     <div class="col-md-12">
                         <label class="form-label visually-hidden" for="inputEmail">Email</label>
                         <input class="form-control form-livedoc-control" id="inputEmail" type="email"
