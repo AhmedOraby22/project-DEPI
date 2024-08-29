@@ -1,19 +1,17 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    /* Prevents any unwanted scrollbars */
-}
 
-
-//////////////////login form /////////////////////////
 .bg-image {
     height: 100vh; /* Full height of the viewport */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .gradient-custom-3 {
     background: linear-gradient(to right, rgba(27, 113, 161, 0.5), rgba(40, 55, 121, 0.5));
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
 }
 
@@ -28,20 +26,24 @@ background: -webkit-linear-gradient(to right, rgba(27, 113, 161, 1), rgba(40, 55
 background: linear-gradient(to right, rgba(27, 113, 161, 1), rgba(40, 55, 121, 0.5))
 }
 
-@media (max-width: 768px) {
-    .card {
-        max-width: 90%; /* Constrain the form width */
-        margin: 20px auto; /* Center the form horizontally and add margin vertically */
-        max-height: 80vh; /* Limit the height of the form */
-        overflow: scroll; /* Prevent content from overflowing */
-    }
 
-    .card-body {
-        padding: 1rem; /* Reduce padding inside the form */
-        height: 100%; /* Full height within the card */
-        box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    }
+.card {
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto; /* Center the form */
 }
+
+.form-control {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+}
+
+.container {
+    max-height: 100vh;
+    overflow-y: auto; /* Enable vertical scroll if needed */
+}
+
+
 //////////////////////////////////////////profile form //////////////////////////////////////////////////
 
 .form-control:focus {
@@ -49,6 +51,14 @@ background: linear-gradient(to right, rgba(27, 113, 161, 1), rgba(40, 55, 121, 0
     border-color: #BA68C8
 }
 
+
+
+@media (max-width: 768px) {
+    .form-outline {
+        margin-bottom: 0.5rem;
+        padding: 0.25rem; /* Reduce padding on smaller screens */
+    }
+}
 
 .back:hover {
     color: #682773;
