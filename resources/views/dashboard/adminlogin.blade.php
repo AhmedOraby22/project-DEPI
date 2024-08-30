@@ -13,35 +13,39 @@
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center mb-5">Sign In</h2>
-                            <form>
+                            <form method="POST" action="{{ route('dashboard.adminlogin') }}">
+                                @csrf
                                 <div class="row align-items-center">
                                     <div class="form-outline mb-4 col-12">
                                         <label class="form-label" for="form3Example3cg">Your Email</label>
-                                        <input type="email" id="form3Example3cg" class="form-control" required />
+                                        <input type="email" id="form3Example3cg" name="email" class="form-control" required />
                                     </div>
                                 </div>
 
                                 <div class="row align-items-center">
                                     <div class="form-outline mb-4 col-12">
                                         <label class="form-label" for="form3Example4cg">Password</label>
-                                        <input type="password" id="form3Example4cg" class="form-control" required />
+                                        <input type="password" id="form3Example4cg" name="password" class="form-control" required />
                                     </div>
                                 </div>
 
                                 <div class="form-check d-flex justify-content-center mb-5">
                                     <label class="form-check-label" for="form2Example3g">
-                                        <a href="#!" class="text-body">Forgot your Password ?</a>
+                                        <a href="#!" class="text-body">Forgot your Password?</a>
                                     </label>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
-                                    <button type="button"
-                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body col-12">LogIn</button>
+                                    <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body col-12">
+                                        LogIn
+                                    </button>
                                 </div>
 
-                                <p class="text-center text-muted mt-5 mb-0">Don't have an account?<a href="#!"
-                                        class="fw-bold text-body"> <u>Register here</u></a></p>
-
+                                <p class="text-center text-muted mt-5 mb-0">Don't have an account?
+                                    <a href="#!" class="fw-bold text-body">
+                                        <u>Register here</u>
+                                    </a>
+                                </p>
                             </form>
                         </div>
                     </div>

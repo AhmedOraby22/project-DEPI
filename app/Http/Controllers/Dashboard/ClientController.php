@@ -13,7 +13,7 @@ class ClientController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth','admin');
+        $this->middleware('auth', 'admin');
     }
 
     /**
@@ -23,15 +23,16 @@ class ClientController extends Controller
     public function index()
     {
         $perPage = $request->perPage ?? 10;
-        $clients = User::where('is_admin',0)->paginate($perPage);
+        $clients = User::where('is_admin', 0)->paginate($perPage);
         return view('dashboard.client.index', ['users' => $clients]);
-    }
+        }
 
     public function edit($id)
     {
         $data = User::find($id);
         return view('dashboard.client.edit', compact('data'));
     }
+
     public function update(EditRequest $request, $id)
     {
         $user = User::find($id);
@@ -40,7 +41,7 @@ class ClientController extends Controller
         {
             return redirect(route('dashboard.client.edit', $id))->with("message", 'Done');
         }
-        return redirect(route('dashboard.client.edit', $id))->with('message_false','problem');
+        return redirect(route('dashboard.client.edit', $id))->with('message_false', 'problem');
     }
 
     public function delete($id)
@@ -51,6 +52,6 @@ class ClientController extends Controller
             $data->delete();
             return redirect(route('dashboard.client.index'))->with("message", 'Done');
         }
-        return redirect(route('dashboard.client.index'))->with('message_false','problem');
+        return redirect(route('dashboard.client.index'))->with('message_false', 'problem');
     }
 }

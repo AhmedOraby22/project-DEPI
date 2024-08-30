@@ -1,21 +1,14 @@
 @extends('web.layouts.app')
 
 @section('content')
-
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-6 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                    width="150px"
-                    src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                <div class="mb-3">
-                    <label for="formFileSm" class="form-label">Upload Image</label>
-                    <input class="form-control form-control-sm" id="formFileSm" type="file">
-                </div>
-
-                <span class="font-weight-bold">Edogaru</span><span
-                    class="text-black-50">edogaru@mail.com.my</span><span>
-                </span>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="150px"
+                     src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                <span class="font-weight-bold">{{ $admin->username }}</span>
+                <span class="text-black-50">{{ $admin->email }}</span>
             </div>
         </div>
         <div class="col-md-6 border-right">
@@ -23,40 +16,50 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
+                
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
 
-                <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control"
-                            placeholder="first name" value=""></div>
-                    <div class="col-md-12"><label class="labels">Phone Number</label><input type="text"
-                            class="form-control" placeholder="enter phone number" value=""></div>
+                <form action="{{ route('profile.update') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="name" class="labels">Name</label>
+                        <input type="text" class="form-control" id="name" name="username" placeholder="First name" value="{{ old('username', $admin->username) }}">
+                        @error('name')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
-                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control"
-                            placeholder="enter email id" value=""></div>
+                    <div class="form-group">
+                        <label for="email" class="labels">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value="{{ old('email', $admin->email) }}">
+                        @error('email')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
-                    <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control"
-                            placeholder="gender" value=""></div>
+                    <div class="form-group">
+                        <label for="password" class="labels">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        @error('password')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="password_confirmation" class="labels">>Confirm Password</label>
+                        <input type="password" class="form-control" id="password_confirmation"  name="password_confirmation" placeholder="Confirm Password">
+                    
+                    </div>
 
-                    <div class="col-md-12"><label class="labels">Date of birth</label><input type="date"
-                            class="form-control" placeholder="Date of birth" value=""></div>
-
-                    <div class="col-md-12"><label class="labels">Password</label><input type="Password"
-                            class="form-control" placeholder="Password" value=""></div>
-
-
-                </div>
-
-                <div class="mt-5 text-center"><button class="btn gradient-custom-4 col-12" type="button">Save
-                        Profile</button></div>
+                    <div class="mt-5 text-center">
+                        <button class="btn gradient-custom-4 col-12" type="submit">Save Profile</button>
+                    </div>
+                </form>
             </div>
         </div>
-
     </div>
 </div>
-
-<div>____________________________________________</div>
-<ul>
-                @foreach($profiles as $profile)
-                    <li>{{ $profile->name }}</li>
-                @endforeach
-            </ul>
 @endsection
