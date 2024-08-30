@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->string('rate')->default(0)->nullable();
             $table->string('gender')->default(1)->nullable();
-            $table->string('birthdate')->nullable();
+            $table->date('birthdate');
             $table->string('is_admin')->default(0);
+            $table->rememberToken();
             $table->timestamps();
         });
 
