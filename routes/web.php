@@ -3,6 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+
+use App\Models\Admin;
+
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminAuthController;
+
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 
@@ -48,19 +54,27 @@ Route::get('/contactus', function () {
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('dashboard.adminlogin');
 Route::post('/admin/login', [AdminAuthController::class, 'login']);
 Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('dashboard.logout');
+
 Route::get('/dashboard/home', function () {
-    return view('dashboard.home');
+    $admin = Auth::guard('admin')->user();
+
+    return view('dashboard.home'); 
 });
 
 
 Route::get('/admin/profile', function () {
-    
-    $admin = Auth::guard('admin')->user();
-    
+    $admin = Auth::guard('admin')->user(); // Ensure admin is authenticated
     return view('dashboard.profile.index', compact('admin'));
 })->name('admin.profile')->middleware('auth:admin');
 
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
+// Route::get('/dashboard/contactus', function () {
+//     return view('dashboard.contactus');
+// });
+
+// Route::group(['middleware' => 'auth'], function () {
+//     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+// });
 

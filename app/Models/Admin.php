@@ -12,4 +12,3 @@ class Admin extends Authenticatable
     protected $fillable = ['username', 'email', 'password'];
     protected $hidden = ['password', 'remember_token'];
 }
-

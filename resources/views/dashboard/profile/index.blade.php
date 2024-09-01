@@ -1,4 +1,4 @@
-@extends('web.layouts.app')
+@extends('dashboard.layouts.app')
 
 @section('content')
 <div class="container rounded bg-white mt-5 mb-5">
