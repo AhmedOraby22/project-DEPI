@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ContactController;
+
 
 // Route for the home page
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -38,6 +40,14 @@ Route::get('/profile/{id}', [UserController::class, 'showUserProfile'])->name('p
 
 Route::patch('/profile/{id}', [UserController::class, 'update'])->name('profile.update');
 
+Route::delete('/profile/{id}', [UserController::class, 'destroy'])->name('profile.destroy');
+
+
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
+
+
 
 
 // Route for contact us page
@@ -54,13 +64,11 @@ Route::get('/dashboard/home', function () {
 
 
 Route::get('/admin/profile', function () {
-    
+
     $admin = Auth::guard('admin')->user();
-    
+
     return view('dashboard.profile.index', compact('admin'));
 })->name('admin.profile')->middleware('auth:admin');
 
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
-
-

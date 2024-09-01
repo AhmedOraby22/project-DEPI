@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('gender')->default(1)->nullable();
             $table->date('birthdate');
             $table->string('is_admin')->default(0);
+            $table->string('avatar')->nullable(); // Add this line for profile image
             $table->rememberToken();
             $table->timestamps();
         });
