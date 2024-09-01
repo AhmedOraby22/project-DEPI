@@ -13,18 +13,21 @@
         <div class="row">
             <div class="col-md-6 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <!-- Display user profile image or a default image if none exists -->
                     <img class="rounded-circle mt-5" width="150px"
-                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                        src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('path/to/default/image.jpg') }}"
+                        alt="Profile Image">
                     <div class="mb-3">
                         <label for="formFileSm" class="form-label">Upload Image</label>
-                        <input class="form-control form-control-sm" id="formFileSm" type="file">
+                        <input class="form-control form-control-sm" id="formFileSm" type="file" name="profile_image">
                     </div>
                     <span class="font-weight-bold">{{ $user->name }}</span>
                     <span class="text-black-50">{{ $user->email }}</span>
                 </div>
             </div>
             <div class="col-md-6 border-right">
-                <form method="POST" action="{{ route('profile.update', ['id' => $user->id]) }}">
+                <form method="POST" action="{{ route('profile.update', ['id' => $user->id]) }}"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                     <div class="p-3 py-5">
@@ -71,6 +74,16 @@
                     </div>
                 </form>
 
+                <!-- Form to delete user -->
+                <form method="POST" action="{{ route('profile.destroy', ['id' => $user->id]) }}"
+                    onsubmit="return confirm('Are you sure you want to delete your account?');">
+                    @csrf
+                    @method('DELETE')
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-danger" type="submit">Delete Account</button>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>
@@ -79,5 +92,6 @@
 
     @include('web.layouts.script')
 </body>
+
 
 </html>
