@@ -15,5 +15,6 @@ class Contact extends Model
         'phone',
         'gender',
         'message',
+        'isread', // Add this line
     ];
 }

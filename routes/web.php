@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
-
+use App\Http\Controllers\AdminContactController;
 use App\Models\Admin;
 
 use App\Http\Controllers\ProfileController;
@@ -85,12 +85,17 @@ Route::get('/admin/profile', function () {
 
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+// routes/web.php
 
 
-// Route::get('/dashboard/contactus', function () {
-//     return view('dashboard.contactus');
-// });
 
-// Route::group(['middleware' => 'auth'], function () {
-//     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-// });
+// عرض جميع الرسائل للإداريين
+Route::get('/admin/contacts', [ContactController::class, 'listContacts'])->name('contacts.list');
+
+
+// Contact Routes
+Route::get('/contacts', [ContactController::class, 'listContacts'])->name('contacts.index');
+Route::get('/contacts/{id}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
+Route::patch('/contacts/{id}', [ContactController::class, 'update'])->name('contacts.update');
+Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+Route::post('/contacts/{id}/mark-as-read', [ContactController::class, 'markAsRead'])->name('contacts.markAsRead');
