@@ -1,0 +1,42 @@
+/* Example custom styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #333; /* Dark text color */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.container {
+    max-width: 1200px; /* Max width of the container */
+    margin: 0 auto; /* Center container */
+    padding: 20px; /* Padding inside container */
+}
+
+h1 {
+    color: #007bff; /* Bootstrap primary color */
+    font-size: 2rem; /* Font size for headings */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+p {
+    font-size: 16px; /* Font size for paragraphs */
+    line-height: 1.6; /* Line height for readability */
+    margin-bottom: 20px; /* Space below paragraphs */
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px; /* Reduced padding on smaller screens */
+    }
+    
+    h1 {
+        font-size: 1.5rem; /* Smaller font size for headings on smaller screens */
+    }
+    
+    p {
+        font-size: 14px; /* Smaller font size for paragraphs on smaller screens */
+    }
+}

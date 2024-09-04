@@ -3,10 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\ClientController;
+// use App\Models\Profile;
+use App\Models\Admin;
 
 Route::get('/home', function () {
+    $admin = Auth::guard('admin')->user();
     return view('dashboard.home');
 });
+
 
 Route::group(['middleware' => 'admin', 'auth'], function()
 {

@@ -9,12 +9,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AdminMiddleware
 {
-    public function handle(Request $request, Closure $next): Response
+    public function handle($request, Closure $next)
     {
-        if (user() && user()->status == 1) {
-            return $next($request);
+        // Check if the user is logged in as admin
+        if (!Auth::guard('admin')->check()) {
+            // If not, redirect to the admin login page
+            return redirect('/admin/login');
         }
-        Auth::logout();
-        return redirect(route('dashboard.auth.login'))->with('message_false', 'Message_Support');
+
+        // If the user is authenticated as admin, proceed with the request
+        return $next($request);
     }
 }

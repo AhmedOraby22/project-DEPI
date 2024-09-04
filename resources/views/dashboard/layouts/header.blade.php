@@ -35,36 +35,36 @@
                         </div>
                         <span class="profile-username">
                       <span class="op-7">Hi,</span>
-                      <span class="fw-bold">Hizrian</span>
+                      @if(isset($admin))
+    <h4>{{$admin->username}}</h4>
+  
+@else
+    <p>User not logged in</p>
+@endif
                     </span>
                     </a>
                     <ul class="dropdown-menu dropdown-user animated fadeIn">
                         <div class="dropdown-user-scroll scrollbar-outer">
                             <li>
                                 <div class="user-box">
-                                    <div class="avatar-lg">
-                                        <img
-                                                src="assets/img/profile.jpg"
-                                                alt="image profile"
-                                                class="avatar-img rounded"
-                                        />
-                                    </div>
+                                    
                                     <div class="u-text">
-                                        <h4>Hizrian</h4>
-                                        <p class="text-muted">hello@example.com</p>
-                                        <a
-                                                href="profile.html"
-                                                class="btn btn-xs btn-secondary btn-sm"
-                                        >View Profile</a
-                                        >
+                                    @if(isset($admin))
+    <h4>{{$admin->username}}</h4>
+    <p class="text-muted">{{$admin->email}}</p>
+@else
+    <p>User not logged in</p>
+@endif
+                                        <a href="{{ url('/admin/profile') }}" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">My Profile</a>
+                                <a class="dropdown-item" href="{{ url('/admin/profile') }}" >My Profile</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Logout</a>
+                                <a class="dropdown-item" href="{{ url('/admin/logout') }}">Logout</a>
                             </li>
                         </div>
                     </ul>
