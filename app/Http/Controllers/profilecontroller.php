@@ -38,9 +38,7 @@ class ProfileController extends Controller
             $admin->username = $request->input('username');
             $admin->email = $request->input('email');
             if ($request->filled('password')) {
-               
                 $admin->password = bcrypt($request->password);
-                $admin->save();
             }
             
      $admin->save();

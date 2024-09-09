@@ -1,4 +1,4 @@
-@extends('web.layouts.app')
+@extends('dashboard.layouts.app')
 
 @section('content')
 <div class="container rounded bg-white mt-5 mb-5">
@@ -49,7 +49,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="password_confirmation" class="labels">>Confirm Password</label>
+                        <label for="password_confirmation" class="labels">Confirm Password</label>
                         <input type="password" class="form-control" id="password_confirmation"  name="password_confirmation" placeholder="Confirm Password">
                     
                     </div>

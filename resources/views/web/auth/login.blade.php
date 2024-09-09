@@ -51,7 +51,7 @@
 
                                     <div class="form-check d-flex justify-content-center mb-5">
                                         <label class="form-check-label" for="form2Example3g">
-                                            <a href="#!" class="text-body">Forgot your Password?</a>
+                                            <a href="{{url('/forgot-password')}}" class="text-body">Forgot your Password?</a>
                                         </label>
                                     </div>
 

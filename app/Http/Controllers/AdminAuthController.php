@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash; // Ensure this is included
-
+use App\Models\Admin;
 class AdminAuthController extends Controller
 {
     public function showLoginForm()
@@ -24,11 +24,10 @@ class AdminAuthController extends Controller
         // Attempt to log the admin in
         $credentials = $request->only('email', 'password');
 
-        // Debugging to check credentials
-        // dd($credentials); 
+      
 
         if (Auth::guard('admin')->attempt($credentials)) {
-            // Remove dd("success") once confirmed working
+            $admin = auth()->guard('admin')->user();
             return redirect()->intended('/dashboard/home');
         }
 

@@ -1,4 +1,5 @@
-@extends('web.layouts.app')
+<!-- @extends('dashboard.layouts.app')
+ -->
 
 @section('content')
 
