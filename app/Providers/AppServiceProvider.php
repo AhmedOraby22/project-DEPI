@@ -22,4 +22,7 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 92410e7cfb6a76ac24aaafd08aec6cc2c8a2e5cf
