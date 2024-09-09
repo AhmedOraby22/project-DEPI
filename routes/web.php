@@ -34,11 +34,10 @@ Route::get('/home', function () {
 // Route for showing the user profile (protected by authentication)
 Route::get('/profile', [UserController::class, 'showProfile'])->name('profile')->middleware('auth');
 
+Route::post('/profile/{id}', [UserController::class, 'update'])->name('profile.update1');
+
 // Route for showing the profile of a specific user (protected by authentication)
 Route::get('/profile/{id}', [UserController::class, 'showUserProfile'])->name('profile.show')->middleware('auth');
-
-
-Route::patch('/profile/{id}', [UserController::class, 'update'])->name('profile.update');
 
 Route::delete('/profile/{id}', [UserController::class, 'destroy'])->name('profile.destroy');
 

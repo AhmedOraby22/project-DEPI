@@ -33,7 +33,8 @@ class UserController extends Controller
         $avatarPath = null;
         if ($request->hasFile('avatar')) {
             $image = $request->file('avatar');
-            $avatarPath = $image->store('avatars', 'public');
+            $image->store('avatars', 'public');
+            $avatarPath = time().'.'.Request()->avatar->getClientOriginalExtension();
         }
 
         // Create a new user instance and save it to the database
@@ -93,7 +94,8 @@ class UserController extends Controller
                 Storage::disk('public')->delete($user->avatar);
             }
             $image = $request->file('avatar');
-            $avatarPath = $image->store('avatars', 'public');
+            $avatarPath = time() . '.' . Request()->avatar->getClientOriginalExtension();
+             $image->storeAs('avatars', $avatarPath);
             $user->avatar = $avatarPath;
         }
 
