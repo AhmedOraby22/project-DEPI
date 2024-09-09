@@ -36,8 +36,8 @@
             <div class="col-auto col-md-4 col-lg-auto text-xl-start">
                 <div class="d-flex flex-column align-items-center">
                     <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="assets/img/icons/neurology.png" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="assets/img/icons/neurology.svg" alt="..." />
+                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/neurology.png')}}" alt="..." /><img
+                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/neurology.svg')}}" alt="..." />
                             <p class="fs-1 fs-xxl-2 text-center">Neurology</p>
                         </a></div>
                 </div>
@@ -45,8 +45,8 @@
             <div class="col-auto col-md-4 col-lg-auto text-xl-start">
                 <div class="d-flex flex-column align-items-center">
                     <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="assets/img/icons/eye-care.png" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="assets/img/icons/eye-care.svg" alt="..." />
+                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/eye-care.png')}}" alt="..." /><img
+                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/eye-care.svg')}}" alt="..." />
                             <p class="fs-1 fs-xxl-2 text-center">Eye care</p>
                         </a></div>
                 </div>
@@ -54,8 +54,8 @@
             <div class="col-auto col-md-4 col-lg-auto text-xl-start">
                 <div class="d-flex flex-column align-items-center">
                     <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="assets/img/icons/cardiac.png" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="assets/img/icons/cardiac.svg" alt="..." />
+                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/cardiac.png')}}" alt="..." /><img
+                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/cardiac.svg')}}" alt="..." />
                             <p class="fs-1 fs-xxl-2 text-center">Cardiac care</p>
                         </a></div>
                 </div>
@@ -63,8 +63,8 @@
             <div class="col-auto col-md-4 col-lg-auto text-xl-start">
                 <div class="d-flex flex-column align-items-center">
                     <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="assets/img/icons/heart.png" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="assets/img/icons/heart.svg" alt="..." />
+                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/heart.png')}}" alt="..." /><img
+                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/heart.svg')}}" alt="..." />
                             <p class="fs-1 fs-xxl-2 text-center">Heart care</p>
                         </a></div>
                 </div>
@@ -72,8 +72,8 @@
             <div class="col-auto col-md-4 col-lg-auto text-xl-start">
                 <div class="d-flex flex-column align-items-center">
                     <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="assets/img/icons/osteoporosis.png" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="assets/img/icons/osteoporosis.svg" alt="..." />
+                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/osteoporosis.png')}}" alt="..." /><img
+                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/osteoporosis.svg')}}" alt="..." />
                             <p class="fs-1 fs-xxl-2 text-center">Osteoporosis</p>
                         </a></div>
                 </div>
@@ -81,8 +81,8 @@
             <div class="col-auto col-md-4 col-lg-auto text-xl-start">
                 <div class="d-flex flex-column align-items-center">
                     <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="assets/img/icons/ent.png" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="assets/img/icons/ent.svg" alt="..." />
+                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/ent.png')}}" alt="..." /><img
+                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/ent.svg')}}" alt="..." />
                             <p class="fs-1 fs-xxl-2 text-center">ENT</p>
                         </a></div>
                 </div>
@@ -104,7 +104,7 @@
 
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-5 col-xxl-6"><img class="img-fluid" src="assets/img/gallery/eye-care.png" alt="..." />
+            <div class="col-md-5 col-xxl-6"><img class="img-fluid" src="{{asset('web_asset/public/assets/img/gallery/eye-care.png')}}" alt="..." />
             </div>
             <div class="col-md-7 col-xxl-6 text-center text-md-start">
                 <h2 class="fw-bold text-light mb-4 mt-4 mt-lg-0">Eye Care with Top Professionals<br
@@ -152,7 +152,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6 order-lg-1 mb-5 mb-lg-0"><img class="fit-cover rounded-circle w-100"
-                    src="assets/img/gallery/health-care.png" alt="..." /></div>
+                    src="{{asset('web_asset/public/assets/img/gallery/health-care.png')}}" alt="..." /></div>
             <div class="col-md-6 text-center text-md-start">
                 <h2 class="fw-bold mb-4">We are developing a healthcare <br class="d-none d-sm-block" />system around
                     you</h2>
@@ -214,7 +214,7 @@
                                 <div class="col-md-4 mb-8 mb-md-0">
                                     <div class="card card-span h-100 shadow">
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="assets/img/gallery/anita.png" width="128" alt="..." />
+                                                src="{{asset('web_asset/public/assets/img/gallery/anita.png')}}" width="128" alt="..." />
                                             <h5 class="mt-3">Anita Deshai</h5>
                                             <p class="mb-0 fs-xxl-1">Pediatrics, Gochi Medicine</p>
                                             <p class="text-600 mb-0">Florida, United States</p>
@@ -229,7 +229,7 @@
                                 <div class="col-md-4 mb-8 mb-md-0">
                                     <div class="card card-span h-100 shadow">
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="assets/img/gallery/jane.png" width="128" alt="..." />
+                                                src="{{asset('web_asset/public/assets/img/gallery/jane.png')}}" width="128" alt="..." />
                                             <h5 class="mt-3">Jane Flakis</h5>
                                             <p class="mb-0 fs-xxl-1">Gynaecology, Abenka Care</p>
                                             <p class="text-600 mb-0">Melbourne, Australia</p>
@@ -244,7 +244,7 @@
                                 <div class="col-md-4 mb-8 mb-md-0">
                                     <div class="card card-span h-100 shadow">
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="assets/img/gallery/leo-mario.png" width="128" alt="..." />
+                                                src="{{asset('web_asset/public/assets/img/gallery/leo-mario.png')}}" width="128" alt="..." />
                                             <h5 class="mt-3">Leo Mario</h5>
                                             <p class="mb-0 fs-xxl-1">Physiotherapy, FitCare</p>
                                             <p class="text-600 mb-0">London, England</p>
@@ -263,7 +263,7 @@
                                 <div class="col-md-4 mb-8 mb-md-0">
                                     <div class="card card-span h-100 shadow">
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="assets/img/gallery/anita.png" width="128" alt="..." />
+                                                src="{{asset('web_asset/public/assets/img/gallery/anita.png')}}" width="128" alt="..." />
                                             <h5 class="mt-3">Anita Deshai</h5>
                                             <p class="mb-0 fs-xxl-1">Pediatrics, Gochi Medicine</p>
                                             <p class="text-600 mb-0">Florida, United States</p>
@@ -278,7 +278,7 @@
                                 <div class="col-md-4 mb-8 mb-md-0">
                                     <div class="card card-span h-100 shadow">
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="assets/img/gallery/jane.png" width="128" alt="..." />
+                                                src="{{asset('web_asset/public/assets/img/gallery/jane.png')}}" width="128" alt="..." />
                                             <h5 class="mt-3">Jane Flakis</h5>
                                             <p class="mb-0 fs-xxl-1">Gynaecology, Abenka Care</p>
                                             <p class="text-600 mb-0">Melbourne, Australia</p>
@@ -293,7 +293,7 @@
                                 <div class="col-md-4 mb-8 mb-md-0">
                                     <div class="card card-span h-100 shadow">
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="assets/img/gallery/leo-mario.png" width="128" alt="..." />
+                                                src="{{asset('web_asset/public/assets/img/gallery/leo-mario.png')}}" width="128" alt="..." />
                                             <h5 class="mt-3">Leo Mario</h5>
                                             <p class="mb-0 fs-xxl-1">Physiotherapy, FitCare</p>
                                             <p class="text-600 mb-0">London, England</p>
@@ -312,7 +312,7 @@
                                 <div class="col-md-4 mb-8 mb-md-0">
                                     <div class="card card-span h-100 shadow">
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="assets/img/gallery/anita.png" width="128" alt="..." />
+                                                src="{{asset('web_asset/public/assets/img/gallery/anita.png')}}" width="128" alt="..." />
                                             <h5 class="mt-3">Anita Deshai</h5>
                                             <p class="mb-0 fs-xxl-1">Pediatrics, Gochi Medicine</p>
                                             <p class="text-600 mb-0">Florida, United States</p>
@@ -327,7 +327,7 @@
                                 <div class="col-md-4 mb-8 mb-md-0">
                                     <div class="card card-span h-100 shadow">
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="assets/img/gallery/jane.png" width="128" alt="..." />
+                                                src="{{asset('web_asset/public/assets/img/gallery/jane.png')}}" width="128" alt="..." />
                                             <h5 class="mt-3">Jane Flakis</h5>
                                             <p class="mb-0 fs-xxl-1">Gynaecology, Abenka Care</p>
                                             <p class="text-600 mb-0">Melbourne, Australia</p>
@@ -342,7 +342,7 @@
                                 <div class="col-md-4 mb-8 mb-md-0">
                                     <div class="card card-span h-100 shadow">
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="assets/img/gallery/leo-mario.png" width="128" alt="..." />
+                                                src="{{asset('web_asset/public/assets/img/gallery/leo-mario.png')}}" width="128" alt="..." />
                                             <h5 class="mt-3">Leo Mario</h5>
                                             <p class="mb-0 fs-xxl-1">Physiotherapy, FitCare</p>
                                             <p class="text-600 mb-0">London, England</p>
@@ -399,7 +399,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="10000">
                         <div class="row h-100">
-                            <div class="col-sm-3 text-center"><img src="assets/img/gallery/people-who-loves.png"
+                            <div class="col-sm-3 text-center"><img src="{{asset('web_asset/public/assets/img/gallery/people-who-loves.png')}}"
                                     width="100" alt="" />
                                 <h5 class="mt-3 fw-medium text-secondary">Edward Newgate</h5>
                                 <p class="fw-normal mb-0">Founder Circle</p>
@@ -421,7 +421,7 @@
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
                         <div class="row h-100">
-                            <div class="col-sm-3 text-center"><img src="assets/img/gallery/people-who-loves.png"
+                            <div class="col-sm-3 text-center"><img src="{{asset('web_asset/public/assets/img/gallery/people-who-loves.png')}}"
                                     width="100" alt="" />
                                 <h5 class="mt-3 fw-medium text-secondary">Jhon Doe</h5>
                                 <p class="fw-normal mb-0">UI/UX Designer</p>
@@ -443,7 +443,7 @@
                     </div>
                     <div class="carousel-item">
                         <div class="row h-100">
-                            <div class="col-sm-3 text-center"><img src="assets/img/gallery/people-who-loves.png"
+                            <div class="col-sm-3 text-center"><img src="{{asset('web_asset/public/assets/img/gallery/people-who-loves.png')}}"
                                     width="100" alt="" />
                                 <h5 class="mt-3 fw-medium text-secondary">Jeny Doe</h5>
                                 <p class="fw-normal mb-0">Web Designer</p>
@@ -511,7 +511,7 @@
             <!--/.bg-holder-->
 
             <div class="col-lg-6 z-index-2 mb-5">
-                <img class="w-100" src="assets/img/gallery/appointment.png" alt="..." />
+                <img class="w-100" src="{{asset('web_asset/public/assets/img/gallery/appointment.png')}}" alt="..." />
             </div>
             <div class="col-lg-6 z-index-2">
                 <form method="POST" action="{{ route('contact.send') }}" class="row g-3">
@@ -589,7 +589,7 @@
         <div class="row">
             <div class="col-sm-6 col-lg-3 mb-4">
                 <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3"
-                        src="assets/img/gallery/covid-19.png" alt="news" />
+                        src="{{asset('web_asset/public/assets/img/gallery/covid-19.png')}}" alt="news" />
                     <div class="card-body"><span class="fs--1 text-primary me-3">Health</span>
                         <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                             fill="currentColor" viewBox="0 0 16 16">
@@ -607,7 +607,7 @@
             </div>
             <div class="col-sm-6 col-lg-3 mb-4">
                 <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3"
-                        src="assets/img/gallery/laboratories.png" alt="news" />
+                        src="{{asset('web_asset/public/assets/img/gallery/laboratories.png')}}" alt="news" />
                     <div class="card-body"><span class="fs--1 text-primary me-3">Lifestyle</span>
                         <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                             fill="currentColor" viewBox="0 0 16 16">
@@ -625,7 +625,7 @@
             </div>
             <div class="col-sm-6 col-lg-3 mb-4">
                 <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3"
-                        src="assets/img/gallery/nicotine.png" alt="news" />
+                        src="{{asset('web_asset/public/assets/img/gallery/nicotine.png')}}" alt="news" />
                     <div class="card-body"><span class="fs--1 text-primary me-3">Health</span>
                         <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                             fill="currentColor" viewBox="0 0 16 16">
@@ -643,7 +643,7 @@
             </div>
             <div class="col-sm-6 col-lg-3 mb-4">
                 <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3"
-                        src="assets/img/gallery/treatment.png" alt="news" />
+                        src="{{asset('web_asset/public/assets/img/gallery/treatment.png')}}" alt="news" />
                     <div class="card-body"><span class="fs--1 text-primary me-3">Health</span>
                         <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                             fill="currentColor" viewBox="0 0 16 16">
@@ -703,7 +703,7 @@
     <div class="container">
         <div class="row py-8">
             <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0"><a class="text-decoration-none" href="#"><img
-                        src="assets/img/gallery/footer-logo.png" height="51" alt="" /></a>
+                        src="{{asset('web_asset/public/assets/img/gallery/footer-logo.png')}}" height="51" alt="" /></a>
                 <p class="text-light my-4">The world's most trusted <br />telehealth company.</p>
             </div>
             <div class="col-6 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
