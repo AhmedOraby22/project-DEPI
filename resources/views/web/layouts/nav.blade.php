@@ -7,11 +7,12 @@
               <li class="nav-item px-2"><a class="nav-link" href="{{route('home')}}#departments">Departments</a></li>
               <li class="nav-item px-2"><a class="nav-link" href="#">F&Q</a></li>
             </ul>
-              @auth()
+              @if(Auth::id())
                 <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{{route('web.profile.show',\Illuminate\Support\Facades\Auth::id())}}">Profile</a>
-              @elseauth()
+                  <a class="btn btn-sm btn-outline-danger rounded-pill order-1 order-lg-0 ms-lg-4" href="{{route('logout')}}">Log out</a>
+              @else
                 <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{{route('login')}}">Sign In</a>
-              @endauth
+              @endif
           </div>
         </div>
       </nav>

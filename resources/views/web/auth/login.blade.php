@@ -18,10 +18,9 @@
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body p-5">
-                                <h2 class="text-uppercase text-center mb-5">Sign In</h2>
+                                <h2 class="text-uppercase text-center mb-5">Sign In / <a href="{{route('home')}}">Home</a></h2>
                                 <form method="POST" action="{{ route('login.submit') }}">
                                     @csrf
-
                                     <!-- Display errors -->
                                     @if ($errors->any())
                                     <div class="alert alert-danger">

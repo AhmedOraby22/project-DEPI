@@ -30,6 +30,7 @@ Route::post('/register', [UserController::class, 'store'])->name('register.store
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 // Route for handling login submissions
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 // Route for showing the home page (ensure you have the home view at this path)
 Route::get('/home', function()
 {
@@ -77,7 +78,7 @@ Route::middleware('guest')->group(function()
 {
     Route::view('/forgot-password', 'web.auth.forgot-password')->name('password.request');
     Route::post('/forgot-password', [ForgotPsswordController::class, 'forgotPassword']);
-    Route::get('/reset-password/{token}', [ForgotPsswordController::class, 'passwordReset'])->name('password.reset');
+    //Route::get('/reset-password/{token}', [ForgotPsswordController::class, 'passwordReset'])->name('password.reset');
     Route::post('/reset-password', [ForgotPsswordController::class, 'passwordUpdate'])->name('password.update');
 });
 Route::middleware('auth:admin')->group(function()

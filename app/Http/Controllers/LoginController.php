@@ -36,4 +36,9 @@ class LoginController extends Controller
             'email' => 'Wrong user name or password.',
         ]);
     }
+    public function logout()
+    {
+        Auth::logout();
+        return view('web.auth.login');
+    }
 }
