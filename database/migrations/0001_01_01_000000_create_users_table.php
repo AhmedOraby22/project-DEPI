@@ -14,11 +14,6 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-<<<<<<< HEAD
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-=======
             $table->string('email')->unique()->index();
             $table->string('password');
             $table->string('status')->default(1);
@@ -28,7 +23,6 @@ return new class extends Migration
             $table->date('birthdate');
             $table->string('is_admin')->default(0);
             $table->string('avatar')->nullable(); // Add this line for profile image
->>>>>>> 92410e7cfb6a76ac24aaafd08aec6cc2c8a2e5cf
             $table->rememberToken();
             $table->timestamps();
         });
@@ -55,14 +49,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
-<<<<<<< HEAD
-        Schema::dropIfExists('password_reset_tokens');
-        Schema::dropIfExists('sessions');
-    }
-};
-=======
         Schema::dropIfExists('sessions');
         Schema::dropIfExists('password_reset_tokens');
     }
 };
->>>>>>> 92410e7cfb6a76ac24aaafd08aec6cc2c8a2e5cf

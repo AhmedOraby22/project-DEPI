@@ -27,7 +27,7 @@
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                         <!-- Display user profile image or a default image if none exists -->
                         <img class="rounded-circle mt-5" width="150px"
-                            src="{{ $user->avatar ? asset('storage/app/avatars/' . $user->avatar) : asset('path/to/default/image.jpg') }}"
+                            src="{{ $user->avatar ? asset('avatars/' . $user->avatar) : asset('path/to/default/image.jpg') }}"
                             alt="Profile Image">
                         <div class="mb-3">
                             <label for="formFileSm" class="form-label">Upload Image</label>
