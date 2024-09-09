@@ -19,7 +19,7 @@
             </ul>
         </div>
         @endif
-        <form method="POST" action="{{ route('profile.update1',$user->id) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('web.profile.update',$user->id) }}" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <div class="row">

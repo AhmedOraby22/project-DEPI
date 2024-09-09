@@ -37,9 +37,9 @@ Route::get('/home', function()
 });
 // Route for showing the user profile (protected by authentication)
 Route::get('/profile', [UserController::class, 'showProfile'])->name('profile')->middleware('auth');
-Route::post('/profile/{id}', [UserController::class, 'update'])->name('profile.update1');
+Route::post('/profile/{id}', [UserController::class, 'update'])->name('web.profile.update');
 // Route for showing the profile of a specific user (protected by authentication)
-Route::get('/profile/{id}', [UserController::class, 'showUserProfile'])->name('profile.show')->middleware('auth');
+Route::get('/profile/{id}', [UserController::class, 'showUserProfile'])->name('web.profile.show')->middleware('auth');
 Route::delete('/profile/{id}', [UserController::class, 'destroy'])->name('profile.destroy');
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.show');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
@@ -63,7 +63,6 @@ Route::get('/admin/profile', function()
     return view('dashboard.profile.index', compact('admin'));
 })->name('admin.profile')->middleware('auth:admin');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 // routes/web.php
 // عرض جميع الرسائل للإداريين
