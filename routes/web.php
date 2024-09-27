@@ -1,11 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
-
-Route::get('/', function () {
-    return view('welcome');
-=======
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AdminContactController;
@@ -22,7 +17,8 @@ use App\Http\Controllers\ContactController;
 use App\Models\city;
 use GuzzleHttp\Middleware;
 
-// Route for the home page
+
+   
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Route for the about us page
@@ -137,5 +133,5 @@ Route::middleware('auth:admin')->group(function(){
     Route::get('delete_country/{id}',[CountryController::class,'destroy']);
     Route::get('edit_country/{id}',[CountryController::class,'edit']);
     Route::put('update-country/{id}',[CountryController::class,'update']);
->>>>>>> 92410e7cfb6a76ac24aaafd08aec6cc2c8a2e5cf
+
 });

@@ -18,11 +18,11 @@ return [
     |
     */
 
-<<<<<<< HEAD
+
     'default' => env('LOG_CHANNEL', 'stack'),
-=======
+
     'default' => env('LOG_CHANNEL', 'daily'),
->>>>>>> 92410e7cfb6a76ac24aaafd08aec6cc2c8a2e5cf
+
 
     /*
     |--------------------------------------------------------------------------
