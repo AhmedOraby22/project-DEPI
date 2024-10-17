@@ -192,19 +192,19 @@
                 <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#charts">
                         <i class="far fa-chart-bar"></i>
-                        <p>Charts</p>
+                        <p>Country & City</p>
                         <span class="caret"></span>
                     </a>
                     <div class="collapse" id="charts">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="charts/charts.html">
-                                    <span class="sub-item">Chart Js</span>
+                                <a href="{{url('/show_country')}}">
+                                    <span class="sub-item">show Country</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="charts/sparkline.html">
-                                    <span class="sub-item">Sparkline</span>
+                                <a href="{{url('/show_city')}}">
+                                    <span class="sub-item">show City</span>
                                 </a>
                             </li>
                         </ul>
