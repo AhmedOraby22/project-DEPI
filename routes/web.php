@@ -81,8 +81,8 @@ Route::middleware('guest')->group(function()
     Route::get('/reset-password', [ForgotPsswordController::class, 'passwordReset'])->name('password.reset');
     Route::post('/reset-password', [ForgotPsswordController::class, 'passwordUpdate'])->name('password.update');
 });
-// Route::middleware('auth:admin')->group(function()
-// {
+Route::middleware('auth:admin')->group(function()
+{
     Route::get('/add_country', [CountryController::class, 'index']);
     // Route::view('/add_country','web.form.country');
     Route::post('/add_country', [CountryController::class, 'create']);
@@ -97,4 +97,4 @@ Route::middleware('guest')->group(function()
     Route::get('delete_country/{id}', [CountryController::class, 'destroy']);
     Route::get('edit_country/{id}', [CountryController::class, 'edit']);
     Route::put('update-country/{id}', [CountryController::class, 'update']);
-// });
+});
