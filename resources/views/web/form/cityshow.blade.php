@@ -1,4 +1,5 @@
 @extends('dashboard.layouts.tables')
+@section('title','City')
 
 @section('content')
 <a type="sumbit" href="{{url('/add_city')}}" class="btn btn-info">add city</a>

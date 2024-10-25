@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.tables')
-
+@section('title','Country')
 @section('content')
 <a type="sumbit" href="{{url('/add_country')}}" class="btn btn-info">add country</a>
 <div class="justify-content-center align-items-center">

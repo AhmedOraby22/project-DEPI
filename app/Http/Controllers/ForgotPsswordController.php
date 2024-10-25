@@ -22,8 +22,15 @@ class ForgotPsswordController extends Controller
         return $status === Password::RESET_LINK_SENT
             ? back()->with(['status' => __($status)])
             : back()->withErrors(['email' => __($status)]);*/
-        return view('web.auth.reset-password');
+        return redirect('/reset-password');
+        // return view('web.auth.reset-password');
     }
+    public function passwordReset()
+{
+    $message = 'Your code is 0000 to reset password';
+    return view('web.auth.reset-password', ['message' => $message]);
+}
+
 
   /*  public function passwordReset(string $token)
     {
@@ -37,7 +44,8 @@ class ForgotPsswordController extends Controller
             'email' => 'required|email|exists:users,email',
             'password' => 'required|min:8|confirmed',
         ]);
-        if($request->code == 0000)
+       
+        if($request->code == '0000')
         {
             $user = User::where('email',$request->email)->first();
             $user->password = Hash::make($request->password);
