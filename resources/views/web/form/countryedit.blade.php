@@ -12,7 +12,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4>Edit & Update Student
+                    <h4>Edit & Update patient city & status
                     </h4>
                 </div>
                 <div class="card-body">
