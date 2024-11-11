@@ -1,9 +1,5 @@
 <?php
-
-namespace App\Mail;
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use App\Models\User;
@@ -11,7 +7,7 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class ForgotPsswordController extends Controller
+class ForgotPasswordController extends Controller
 {
     public function forgotPassword(Request $request)
     {

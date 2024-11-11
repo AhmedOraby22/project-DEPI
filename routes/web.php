@@ -1,15 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function()
-{
-    return view('welcome');
-});
-
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\ForgotPsswordController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\CountryController;
@@ -77,18 +71,16 @@ Route::post('/contacts/{id}/mark-as-read', [ContactController::class, 'markAsRea
 Route::middleware('guest')->group(function()
 {
     Route::view('/forgot-password', 'web.auth.forgot-password')->name('password.request');
-    Route::post('/forgot-password', [ForgotPsswordController::class, 'forgotPassword']);
-    Route::get('/reset-password', [ForgotPsswordController::class, 'passwordReset'])->name('password.reset');
-    Route::post('/reset-password', [ForgotPsswordController::class, 'passwordUpdate'])->name('password.update');
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPassword']);
+    Route::get('/reset-password', [ForgotPasswordController::class, 'passwordReset'])->name('password.reset');
+    Route::post('/reset-password', [ForgotPasswordController::class, 'passwordUpdate'])->name('password.update');
 });
 Route::middleware('auth:admin')->group(function()
-{
+{  
     Route::get('/add_country', [CountryController::class, 'index']);
-    // Route::view('/add_country','web.form.country');
     Route::post('/add_country', [CountryController::class, 'create']);
     Route::get('/show_country', [CountryController::class, 'show'])->name('showcountry');
     Route::get('/add_city', [CityController::class, 'index'])->name('showcity');
-    // Route::view('/add_city','web.form.city');
     Route::post('/add_city', [CityController::class, 'create']);
     Route::get('/show_city', [CityController::class, 'show']);
     Route::get('/delete_city/{id}', [CityController::class, 'destroy']);
