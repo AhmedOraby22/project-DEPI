@@ -28,12 +28,13 @@
 
                                 <div class="form-group mb-3">
                                     <input 
-                                        type="email" 
-                                        name="email" 
-                                        class="form-control" 
-                                        placeholder="Enter email address" 
-                                        required
+                                    input type="text" name="email" 
+                                    class="form-control @error('email') ring-red-500 @enderror" 
+                                    required
                                     >
+                                    @error('email')
+                                    <p class="error text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">

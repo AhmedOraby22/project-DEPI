@@ -16,26 +16,15 @@ class ForgotPsswordController extends Controller
     public function forgotPassword(Request $request)
     {
         $request->validate(['email' => 'required|email|exists:users,email']);
-       /* $status = Password::sendResetLink(
-            $request->only('email')
-        );
-        return $status === Password::RESET_LINK_SENT
-            ? back()->with(['status' => __($status)])
-            : back()->withErrors(['email' => __($status)]);*/
+ 
         return redirect('/reset-password');
-        // return view('web.auth.reset-password');
+    
     }
     public function passwordReset()
 {
     $message = 'Your code is 0000 to reset password';
     return view('web.auth.reset-password', ['message' => $message]);
 }
-
-
-  /*  public function passwordReset(string $token)
-    {
-        return view('web.auth.reset-password', ['token' => $token]);
-    }*/
 
     public function passwordUpdate(Request $request)
     {
@@ -53,20 +42,6 @@ class ForgotPsswordController extends Controller
             return view('web.auth.login');
         }
         return view('web.auth.reset-password');
-       /* $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function(User $user, string $password)
-            {
-                $user->forceFill([
-                    'password' => Hash::make($password)
-                ]);
-                // ->setRememberToken(Str::random(60));
-                $user->save();
-                event(new PasswordReset($user));
-            }
-        );
-        return $status === Password::PASSWORD_RESET
-            ? redirect()->route('web.auth.login')->with('status', __($status))
-            : back()->withErrors(['email' => [__($status)]]);*/
+    
     }
 }
