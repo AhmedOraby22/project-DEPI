@@ -6,38 +6,56 @@ use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-
+use App\Models\PasswordResetToken;
 class ForgotPasswordController extends Controller
 {
     public function forgotPassword(Request $request)
     {
         $request->validate(['email' => 'required|email|exists:users,email']);
- 
-        return redirect('/reset-password');
-    
+
+        // Generate a unique reset code
+        $code = Str::random(4);
+
+        // Save the reset token in the `password_reset_tokens` table
+        PasswordResetToken::updateOrCreate(
+            ['email' => $request->email], // Find by email to avoid duplicates
+            ['code' => $code]             // Update or insert the code
+        );
+
+        // Redirect to reset password page with the code in the session
+        return redirect()->route('password.reset')->with(['message' => "Your code is {$code} to reset password"]);
     }
     public function passwordReset()
 {
-    $message = 'Your code is 0000 to reset password';
-    return view('web.auth.reset-password', ['message' => $message]);
+    
+   // Show the reset password form with the message from the session
+   return view('web.auth.reset-password', ['message' => session('message')]);
 }
 
     public function passwordUpdate(Request $request)
-    {
+    {   
         $request->validate([
             'code' => 'required',
             'email' => 'required|email|exists:users,email',
             'password' => 'required|min:8|confirmed',
         ]);
-       
-        if($request->code == '0000')
-        {
-            $user = User::where('email',$request->email)->first();
+
+        // Verify the code in the `password_reset_tokens` table
+        $resetToken = PasswordResetToken::where('email', $request->email)
+                                        ->where('code', $request->code)
+                                        ->first();
+
+        if ($resetToken) {
+            // Update the user's password
+            $user = User::where('email', $request->email)->first();
             $user->password = Hash::make($request->password);
             $user->save();
-            return view('web.auth.login');
+
+            return view('web.auth.login')->with('success', 'Password reset successfully');
         }
-        return view('web.auth.reset-password');
-    
+
+        // Reload the reset password view with an error message if the code is invalid
+        return redirect()->back()->withErrors(['code' => 'The code is invalid.']);
     }
 }
+
