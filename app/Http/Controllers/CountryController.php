@@ -24,14 +24,6 @@ class CountryController extends Controller
         $country->name=$request->name;
         $country->status=$request->status;
         $country->save();
-        // $result=$country->save();
-        // if($request){
-        //     return"country added";}
-        //     else{
-        //         return"country not added";
-
-        //     }
-        // return view('web.form.country');
         return redirect()->back()->with('status','Country added Successfully');
 
     }
@@ -81,7 +73,6 @@ class CountryController extends Controller
     {
         $country=country::find($id);
         $country->delete();
-        // return redirect('/show_country')->with('staus',"Data Deleted Successfully");
         return redirect()->back()->with('message','country deleted successfully!');
     }
 }
