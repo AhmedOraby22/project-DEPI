@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Dashboard\User;
+namespace App\Http\Requests\Dashboard\Country;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -26,9 +26,7 @@ class CreateRequest extends FormRequest
     {
 
         return [
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8|confirmed',
+            'name' => 'required|string|unique:countries,name',
         ];
     }
 

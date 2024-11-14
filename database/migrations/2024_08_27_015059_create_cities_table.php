@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('status'); 
+            $table->string('name')->unique();
+            $table->string('status')->default(1);
             $table->bigInteger('country_id')->unsigned()->index()->nullable();
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');       
             $table->timestamps();

@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Http\Requests\Dashboard\User;
+namespace App\Http\Requests\Dashboard\Patient;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class EditRequest extends FormRequest
 {
-
     /**
      * Determine if the User is authorized to make this request.
      *
      * return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -24,12 +23,12 @@ class CreateRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
             'name' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8|confirmed',
+            'email' => 'required|email|unique:patients,email,' . $this->id . ',id',
+            'phone' => 'required|numeric|unique:patients,phone,' . $this->id . ',id',
+            'birthdate' => 'required|date',
+            'gender' => 'required|string',
         ];
     }
-
 }

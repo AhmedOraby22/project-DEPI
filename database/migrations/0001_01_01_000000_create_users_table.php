@@ -17,13 +17,6 @@ return new class extends Migration
             $table->string('email')->unique()->index();
             $table->string('password');
             $table->string('status')->default(1);
-            $table->string('phone')->unique();
-            $table->string('rate')->default(0)->nullable();
-            $table->string('gender')->default(1)->nullable();
-            $table->date('birthdate');
-            $table->string('is_admin')->default(0);
-            $table->string('avatar')->nullable(); // Add this line for profile image
-            $table->rememberToken();
             $table->timestamps();
         });
 

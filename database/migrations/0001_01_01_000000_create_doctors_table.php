@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('doctors', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
+            $table->string('email')->unique()->index();
+            $table->string('password');
             $table->string('status')->default(1);
+            $table->string('rate')->default(0);
             $table->timestamps();
         });
+
+
     }
 
     /**
@@ -24,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('countries');
+        Schema::dropIfExists('doctors');
     }
 };
