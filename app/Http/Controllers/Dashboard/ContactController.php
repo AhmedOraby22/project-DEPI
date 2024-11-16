@@ -3,25 +3,25 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\Contact\EditRequest;
 use App\Models\Contact;
+use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::all();
-        return view('admin.contacts.index', compact('contacts'));
+        $datas = Contact::all();
+        return view('admin.contacts.index', compact('datas'));
     }
     public function edit($id)
     {
         $data = Contact::find($id);
         return view('dashboard.contact.edit', compact('data'));
     }
-    public function update(EditRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $contact = Contact::find($id);
-        $data = $contact->update($request->all());
+        $data = Contact::find($id);
+        $data = $data->update($request->all());
         if($data)
         {
             return redirect(route('dashboard.contact.edit', $id))->with("message", 'Done');

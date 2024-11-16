@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Dashboard\Doctor;
+namespace App\Http\Requests\Dashboard\Department;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,11 +24,7 @@ class EditRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users,email,' . $this->id . ',id',
-            'country_id' => 'required|exists:countries,id',
-            'city_id' => 'required|exists:cities,id',
-            'phone' => 'required|numeric|unique:users,phone,' . $this->id . ',id',
+            'name' => 'required|string|unique:departments,name,' . $this->id . ',id',
         ];
     }
 }

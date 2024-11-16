@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Doctor\CreateRequest;
 use App\Http\Requests\Dashboard\Doctor\EditRequest;
-use App\Models\Doctor;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\Department;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -20,21 +23,31 @@ class DoctorController extends Controller
      */
     public function index(Request $request)
     {
-        $datas = Doctor::all();
+        $datas = User::where('role',2)->get();
         return view('dashboard.doctor.index', ['datas' => $datas]);
     }
 
     public function create()
     {
-        return view('dashboard.doctor.create');
+        $countries = Country::where('status',1)->get();
+        $cities = City::where('status',1)->get();
+        $Departments = Department::where('status',1)->get();
+        return view('dashboard.doctor.create',get_defined_vars());
     }
 
     public function store(CreateRequest $request)
     {
-        $data = new Doctor();
+        $data = new User();
         if (isset($request->password)) {
             $request->merge(['password' => Hash::make($request->password)]);
         }
+        $avatarPath = null;
+        if($request->hasFile('avatar'))
+        {
+            $avatarPath = time() . '.' . Request()->avatar->getClientOriginalExtension();
+            Request()->avatar->move(public_path('avatars'), $avatarPath);
+        }
+        $request->merge(['role' => 2,'avatar'=>$avatarPath]);
         $data = $data->create($request->all());
         if($data)
         {
@@ -45,12 +58,15 @@ class DoctorController extends Controller
 
     public function edit($id)
     {
-        $data = Doctor::find($id);
-        return view('dashboard.doctor.edit', compact('data'));
+        $data = User::find($id);
+        $countries = Country::where('status',1)->get();
+        $cities = City::where('status',1)->get();
+        $Departments = Department::where('status',1)->get();
+        return view('dashboard.doctor.edit',get_defined_vars());
     }
     public function update(EditRequest $request, $id)
     {
-        $data = Doctor::find($id);
+        $data = User::find($id);
         $data = $data->update($request->all());
         if($data)
         {
@@ -61,13 +77,13 @@ class DoctorController extends Controller
 
     public function show($id)
     {
-        $data = Doctor::find($id);
+        $data = User::find($id);
         return view('dashboard.doctor.profile', compact('data'));
     }
 
     public function destroy($id)
     {
-        $data = Doctor::find($id);
+        $data = User::find($id);
         if($data)
         {
             $data->delete();

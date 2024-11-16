@@ -25,8 +25,8 @@ class EditRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|email|unique:patients,email,' . $this->id . ',id',
-            'phone' => 'required|numeric|unique:patients,phone,' . $this->id . ',id',
+            'email' => 'required|email|unique:users,email,' . $this->id . ',id',
+            'phone' => 'required|numeric|unique:users,phone,' . $this->id . ',id',
             'birthdate' => 'required|date',
             'gender' => 'required|string',
         ];

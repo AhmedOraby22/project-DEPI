@@ -17,6 +17,15 @@ return new class extends Migration
             $table->string('email')->unique()->index();
             $table->string('password');
             $table->string('status')->default(1);
+            $table->string('rate')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('phone')->nullable();
+            $table->date('birthdate')->nullable();
+            $table->string('role')->default(1);
+            $table->bigInteger('country_id')->unsigned()->index()->nullable();
+            $table->bigInteger('city_id')->unsigned()->index()->nullable();
+            $table->bigInteger('department_id')->unsigned()->index()->nullable();
             $table->timestamps();
         });
 

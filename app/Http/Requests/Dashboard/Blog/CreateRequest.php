@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Dashboard\Doctor;
+namespace App\Http\Requests\Dashboard\Blog;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -27,11 +27,6 @@ class CreateRequest extends FormRequest
 
         return [
             'name' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8|confirmed',
-            'country_id' => 'required|exists:countries,id',
-             'city_id' => 'required|exists:cities,id',
-            'phone' => 'required|numeric|unique:users,phone,' . $this->id . ',id',
         ];
     }
 

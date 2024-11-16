@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Patient\EditRequest;
-use App\Models\Patient;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
@@ -18,18 +18,18 @@ class PatientController extends Controller
      */
     public function index(Request $request)
     {
-        $datas = Patient::all();
+        $datas = User::where('role',3)->get();
         return view('dashboard.patient.index', ['datas' => $datas]);
     }
 
     public function edit($id)
     {
-        $data = Patient::find($id);
+        $data = User::find($id);
         return view('dashboard.patient.edit', compact('data'));
     }
     public function update(EditRequest $request, $id)
     {
-        $data = Patient::find($id);
+        $data = User::find($id);
         $data = $data->update($request->all());
         if($data)
         {
@@ -40,13 +40,13 @@ class PatientController extends Controller
 
     public function show($id)
     {
-        $data = Patient::find($id);
+        $data = User::find($id);
         return view('dashboard.patient.profile', compact('data'));
     }
 
     public function destroy($id)
     {
-        $data = Patient::find($id);
+        $data = User::find($id);
         if($data)
         {
             $data->delete();

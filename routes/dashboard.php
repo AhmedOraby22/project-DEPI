@@ -6,6 +6,8 @@ use App\Http\Controllers\Dashboard\DoctorController;
 use App\Http\Controllers\Dashboard\CityController;
 use App\Http\Controllers\Dashboard\CountryController;
 use App\Http\Controllers\Dashboard\PatientController;
+use App\Http\Controllers\Dashboard\ContactController;
+use App\Http\Controllers\Dashboard\DepartmentController;
 
 Route::get('/home', function()
 {
@@ -57,5 +59,25 @@ Route::controller(PatientController::class)->prefix('/patient')->name('patient.'
         Route::post('{id}', 'update')->name('update');
         Route::get('{id}', 'edit')->name('edit');
         Route::get('{id}', 'show')->name('show');
+    }
+);
+
+Route::resource('contact', ContactController::class, ['except' => ['create','store','show', 'update']])
+    ->parameters(['contact' => 'id']);
+Route::controller(ContactController::class)->prefix('/contact')->name('contact.')->group(
+    function()
+    {
+        Route::post('{id}', 'update')->name('update');
+        Route::get('{id}', 'edit')->name('edit');
+        Route::get('{id}', 'show')->name('show');
+    }
+);
+Route::resource('department', DepartmentController::class, ['except' => ['show', 'update']])
+    ->parameters(['department' => 'id']);
+Route::controller(DepartmentController::class)->prefix('/department')->name('department.')->group(
+    function()
+    {
+        Route::post('{id}', 'update')->name('update');
+        Route::get('{id}', 'edit')->name('edit');
     }
 );

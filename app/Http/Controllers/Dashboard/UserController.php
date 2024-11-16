@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $datas = User::all();
+        $datas = User::where('role',1)->get();
         return view('dashboard.user.index', ['datas' => $datas]);
     }
 
@@ -34,6 +34,7 @@ class UserController extends Controller
         if (isset($request->password)) {
             $request->merge(['password' => Hash::make($request->password)]);
         }
+        $request->merge(['role' => 1]);
         $data = $data->create($request->all());
         if($data)
         {

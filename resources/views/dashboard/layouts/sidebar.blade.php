@@ -57,6 +57,18 @@
                         <p>City</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('dashboard.department.index')}}">
+                        <i class="fas fa-file"></i>
+                        <p>Department</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('dashboard.blog.index')}}">
+                        <i class="fas fa-file"></i>
+                        <p>Blog</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
