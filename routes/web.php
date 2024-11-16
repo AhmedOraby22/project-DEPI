@@ -11,11 +11,13 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ContactController;
-
+use App\Http\Controllers\aboutusController;
 // Route for the home page
 Route::get('/', [HomeController::class, 'index'])->name('home');
 // Route for the about us page
-Route::get('/about-us', [PageController::class, 'about'])->name('about');
+// Route::get('/about-us', [PageController::class, 'about-us'])->name('about-us');
+Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
+
 // Route for showing the registration form
 Route::get('/register', [UserController::class, 'create'])->name('register');
 // Route for storing the registration data

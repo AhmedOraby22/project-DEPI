@@ -21,7 +21,6 @@ class AdminAuthController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        // Attempt to log the admin in
         $credentials = $request->only('email', 'password');
 
       

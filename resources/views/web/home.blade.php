@@ -122,7 +122,7 @@
 
 <!-- ============================================-->
 <!-- <section> begin ============================-->
-<section class="pb-0" id="about">
+<!-- <section class="pb-0" id="about">
 
     <div class="container">
         <div class="row">
@@ -130,24 +130,22 @@
                 <div class="bg-holder bg-size"
                     style="background-image:url(assets/img/gallery/about-us.png);background-position:top center;background-size:contain;">
                 </div>
-                <!--/.bg-holder-->
+              
 
                 <h1 class="text-center">ABOUT US</h1>
             </div>
         </div>
     </div>
-    <!-- end of .container-->
+  
 
-</section>
-<!-- <section> close ============================-->
-<!-- ============================================-->
+</section> -->
 
 
 <section class="py-5">
     <div class="bg-holder bg-size"
         style="background-image:url(assets/img/gallery/about-bg.png);background-position:top center;background-size:contain;">
     </div>
-    <!--/.bg-holder-->
+  
 
     <div class="container">
         <div class="row align-items-center">
