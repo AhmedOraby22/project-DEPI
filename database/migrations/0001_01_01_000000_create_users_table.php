@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('role')->default(1);
             $table->bigInteger('country_id')->unsigned()->index()->nullable();
             $table->bigInteger('city_id')->unsigned()->index()->nullable();
+            $table->bigInteger('department_id')->unsigned()->index()->nullable();
             $table->timestamps();
         });
 

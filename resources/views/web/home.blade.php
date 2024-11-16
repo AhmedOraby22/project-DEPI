@@ -33,60 +33,17 @@
 
     <div class="container">
         <div class="row py-5 align-items-center justify-content-center justify-content-lg-evenly">
+            @foreach($departments as $department)
             <div class="col-auto col-md-4 col-lg-auto text-xl-start">
                 <div class="d-flex flex-column align-items-center">
                     <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/neurology.png')}}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/neurology.svg')}}" alt="..." />
-                            <p class="fs-1 fs-xxl-2 text-center">Neurology</p>
+                                class="mb-3 deparment-icon" src="{{ $department->avatar ? asset('avatars/' . $department->avatar) : asset('path/to/default/image.jpg') }}" alt="..." /><img
+                                class="mb-3 deparment-icon-hover" src="{{ $doctor->avatar ? asset('avatars/' . $department->avatar) : asset('path/to/default/image.jpg') }}" alt="..." />
+                            <p class="fs-1 fs-xxl-2 text-center">{{$department->name}}</p>
                         </a></div>
                 </div>
             </div>
-            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
-                <div class="d-flex flex-column align-items-center">
-                    <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/eye-care.png')}}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/eye-care.svg')}}" alt="..." />
-                            <p class="fs-1 fs-xxl-2 text-center">Eye care</p>
-                        </a></div>
-                </div>
-            </div>
-            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
-                <div class="d-flex flex-column align-items-center">
-                    <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/cardiac.png')}}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/cardiac.svg')}}" alt="..." />
-                            <p class="fs-1 fs-xxl-2 text-center">Cardiac care</p>
-                        </a></div>
-                </div>
-            </div>
-            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
-                <div class="d-flex flex-column align-items-center">
-                    <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/heart.png')}}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/heart.svg')}}" alt="..." />
-                            <p class="fs-1 fs-xxl-2 text-center">Heart care</p>
-                        </a></div>
-                </div>
-            </div>
-            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
-                <div class="d-flex flex-column align-items-center">
-                    <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/osteoporosis.png')}}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/osteoporosis.svg')}}" alt="..." />
-                            <p class="fs-1 fs-xxl-2 text-center">Osteoporosis</p>
-                        </a></div>
-                </div>
-            </div>
-            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
-                <div class="d-flex flex-column align-items-center">
-                    <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/ent.png')}}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/ent.svg')}}" alt="..." />
-                            <p class="fs-1 fs-xxl-2 text-center">ENT</p>
-                        </a></div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <!-- end of .container-->
@@ -217,7 +174,7 @@
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
                                                 src="{{ $doctor->avatar ? asset('avatars/' . $doctor->avatar) : asset('path/to/default/image.jpg') }}" width="128" alt="..." />
                                             <h5 class="mt-3">{{$doctor->name}}</h5>
-                                            <p class="mb-0 fs-xxl-1">Pediatrics, Gochi Medicine</p>
+                                            <p class="mb-0 fs-xxl-1">{{$doctor->department->name}}</p>
                                             <p class="text-600 mb-0">{{$doctor->country->name .','.$doctor->city->name }}</p>
                                             <p class="text-600 mb-4">10 years experience</p>
                                             <div class="text-center">
@@ -583,17 +540,9 @@
             <div class="col-6 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
                 <h5 class="lh-lg fw-bold mb-4 text-light font-sans-serif">Departments</h5>
                 <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    <li class="lh-lg"><a class="footer-link" href="#!">Eye care</a></li>
-                    <li class="lh-lg"><a class="footer-link" href="#!">Cardiac are</a></li>
-                    <li class="lh-lg"><a class="footer-link" href="#!">Heart care</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
-                <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif">Membership</h5>
-                <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    <li class="lh-lg"><a class="footer-link" href="#!">Free trial</a></li>
-                    <li class="lh-lg"><a class="footer-link" href="#!">Silver</a></li>
-                    <li class="lh-lg"><a class="footer-link" href="#!">Premium</a></li>
+                    @foreach($departments as $department)
+                    <li class="lh-lg"><a class="footer-link" href="#!">{{$department->name}}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
