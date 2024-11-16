@@ -78,6 +78,10 @@
                                                 value="{{ old('password_confirmation') }}"
                                         />
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="formFileSm" class="form-label">Upload Image</label>
+                                        <input class="form-control form-control-sm" id="formFileSm" type="file" name="avatar">
+                                    </div>
                                     <div class="form-group">
                                         <label for="country"
                                         >Country</label
@@ -107,6 +111,22 @@
                                             @foreach($cities as $city)
                                                 <option value="{{$city->id}}" >
                                                     {{$city->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country"
+                                        >Department</label
+                                        >
+                                        <select
+                                                class="form-select"
+                                                id="department_id"
+                                                name="department_id"
+                                        >
+                                            <option value="" >choose department</option>
+                                            @foreach($cities as $department)
+                                                <option value="{{$department->id}}" >
+                                                    {{$department->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>

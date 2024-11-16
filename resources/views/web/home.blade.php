@@ -38,7 +38,7 @@
                 <div class="d-flex flex-column align-items-center">
                     <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
                                 class="mb-3 deparment-icon" src="{{ $department->avatar ? asset('avatars/' . $department->avatar) : asset('path/to/default/image.jpg') }}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{ $doctor->avatar ? asset('avatars/' . $department->avatar) : asset('path/to/default/image.jpg') }}" alt="..." />
+                                class="mb-3 deparment-icon-hover" src="{{ $department->avatar ? asset('avatars/' . $department->avatar) : asset('path/to/default/image.jpg') }}" alt="..." />
                             <p class="fs-1 fs-xxl-2 text-center">{{$department->name}}</p>
                         </a></div>
                 </div>
@@ -174,7 +174,7 @@
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
                                                 src="{{ $doctor->avatar ? asset('avatars/' . $doctor->avatar) : asset('path/to/default/image.jpg') }}" width="128" alt="..." />
                                             <h5 class="mt-3">{{$doctor->name}}</h5>
-                                            <p class="mb-0 fs-xxl-1">{{$doctor->department->name}}</p>
+                                            <p class="mb-0 fs-xxl-1">{{$doctor->department->name ?? ""}}</p>
                                             <p class="text-600 mb-0">{{$doctor->country->name .','.$doctor->city->name }}</p>
                                             <p class="text-600 mb-4">10 years experience</p>
                                             <div class="text-center">

@@ -7,6 +7,7 @@ use App\Http\Requests\Dashboard\Doctor\CreateRequest;
 use App\Http\Requests\Dashboard\Doctor\EditRequest;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -30,6 +31,7 @@ class DoctorController extends Controller
     {
         $countries = Country::where('status',1)->get();
         $cities = City::where('status',1)->get();
+        $Departments = Department::where('status',1)->get();
         return view('dashboard.doctor.create',get_defined_vars());
     }
 
@@ -59,6 +61,7 @@ class DoctorController extends Controller
         $data = User::find($id);
         $countries = Country::where('status',1)->get();
         $cities = City::where('status',1)->get();
+        $Departments = Department::where('status',1)->get();
         return view('dashboard.doctor.edit',get_defined_vars());
     }
     public function update(EditRequest $request, $id)

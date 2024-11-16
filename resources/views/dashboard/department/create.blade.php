@@ -26,6 +26,10 @@
                                                 value="{{ old('name') }}"
                                         />
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="formFileSm" class="form-label">Upload Image</label>
+                                        <input class="form-control form-control-sm" id="formFileSm" type="file" name="avatar">
+                                    </div>
                                 </div>
                             </div>
                         </div>
