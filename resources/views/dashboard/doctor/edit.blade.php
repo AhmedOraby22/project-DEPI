@@ -5,7 +5,7 @@
         <div class="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="POST" class="card" action="{{ route('dashboard.doctor.update', $data->id) }}">
+                    <form method="POST" class="card" action="{{ route('dashboard.doctor.update', $data->id) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="card-header">
                             <div class="card-title">Update Doctor</div>
