@@ -14,6 +14,12 @@ function user()
     if (Auth::guard('web')->check()) {
         return Auth::guard('web')->user();
     }
+    if (Auth::guard('patient')->check()) {
+        return Auth::guard('patient')->user();
+    }
+    if (Auth::guard('doctor')->check()) {
+        return Auth::guard('doctor')->user();
+    }
 }
 
 function checkView($view)

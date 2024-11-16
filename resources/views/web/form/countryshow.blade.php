@@ -1,6 +1,9 @@
 @extends('dashboard.layouts.tables')
 @section('title','Country')
 @section('content')
+@if (session('message'))
+<h6 class="alert alert-success">{{ session('message') }}</h6>
+@endif
 <a type="sumbit" href="{{url('/add_country')}}" class="btn btn-info">add country</a>
 <div class="justify-content-center align-items-center">
     <table class="table">
