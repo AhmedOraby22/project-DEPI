@@ -3,34 +3,34 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\Department\CreateRequest;
-use App\Http\Requests\Dashboard\Department\EditRequest;
-use App\Models\Department;
+use App\Http\Requests\Dashboard\Blog\CreateRequest;
+use App\Http\Requests\Dashboard\Blog\EditRequest;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 /**
- * controller department about web function
+ * controller blog about web function
  */
-class DepartmentController extends Controller
+class BlogController extends Controller
 {
     /**
      * param Request $request
-     * get all department to manage it
+     * get all blog to manage it
      */
     public function index(Request $request)
     {
-        $datas = Department::all();
-        return view('dashboard.department.index', ['datas' => $datas]);
+        $datas = Blog::all();
+        return view('dashboard.blog.index', ['datas' => $datas]);
     }
 
     public function create()
     {
-        return view('dashboard.department.create');
+        return view('dashboard.blog.create');
     }
 
     public function store(CreateRequest $request)
     {
-        $data = new Department();
+        $data = new Blog();
         $avatarPath = null;
         if($request->hasFile('avatar'))
         {
@@ -41,19 +41,19 @@ class DepartmentController extends Controller
         $data = $data->create($request->all());
         if($data)
         {
-            return redirect(route('dashboard.department.index'))->with("message", 'Done');
+            return redirect(route('dashboard.blog.index'))->with("message", 'Done');
         }
-        return redirect(route('dashboard.department.create'))->with('message_false','problem');
+        return redirect(route('dashboard.blog.create'))->with('message_false','problem');
     }
 
     public function edit($id)
     {
-        $data = Department::find($id);
-        return view('dashboard.department.edit', compact('data'));
+        $data = Blog::find($id);
+        return view('dashboard.blog.edit', compact('data'));
     }
     public function update(EditRequest $request, $id)
     {
-        $data = Department::find($id);
+        $data = Blog::find($id);
         $avatarPath = null;
         if($request->hasFile('avatar'))
         {
@@ -64,19 +64,19 @@ class DepartmentController extends Controller
         $data = $data->update($request->all());
         if($data)
         {
-            return redirect(route('dashboard.department.index', $id))->with("message", 'Done');
+            return redirect(route('dashboard.blog.index', $id))->with("message", 'Done');
         }
-        return redirect(route('dashboard.department.edit', $id))->with('message_false','problem');
+        return redirect(route('dashboard.blog.edit', $id))->with('message_false','problem');
     }
 
     public function destroy($id)
     {
-        $data = Department::find($id);
+        $data = Blog::find($id);
         if($data)
         {
             $data->delete();
-            return redirect(route('dashboard.department.index'))->with("message", 'Done');
+            return redirect(route('dashboard.blog.index'))->with("message", 'Done');
         }
-        return redirect(route('dashboard.department.index'))->with('message_false','problem');
+        return redirect(route('dashboard.blog.index'))->with('message_false','problem');
     }
 }
