@@ -42,6 +42,17 @@
                                         >
                                     </div>
                                     <div class="form-group">
+                                        <label for="email">Phone Number</label>
+                                        <input
+                                                type="text"
+                                                class="form-control"
+                                                id="phone"
+                                                name="phone"
+                                                placeholder="Enter Phone"
+                                                value="{{ old('phone') }}"
+                                        />
+                                    </div>
+                                    <div class="form-group">
                                         <label for="password">Password</label>
                                         <input
                                                 type="password"
@@ -66,6 +77,38 @@
                                                 placeholder="Enter Password Confirmation"
                                                 value="{{ old('password_confirmation') }}"
                                         />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country"
+                                        >Country</label
+                                        >
+                                        <select
+                                                class="form-select"
+                                                id="country_id"
+                                                name="country_id"
+                                        >
+                                            <option value="" >choose country</option>
+                                            @foreach($countries as $country)
+                                                <option value="{{$country->id}}" >
+                                                    {{$country->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country"
+                                        >City</label
+                                        >
+                                        <select
+                                                class="form-select"
+                                                id="city_id"
+                                                name="city_id"
+                                        >
+                                            <option value="" >choose city</option>
+                                            @foreach($cities as $city)
+                                                <option value="{{$city->id}}" >
+                                                    {{$city->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>

@@ -27,8 +27,11 @@ class CreateRequest extends FormRequest
 
         return [
             'name' => 'required|string',
-            'email' => 'required|email|unique:doctors,email',
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|confirmed',
+            'country_id' => 'required|exists:countries,id',
+             'city_id' => 'required|exists:cities,id',
+            'phone' => 'required|numeric|unique:users,phone,' . $this->id . ',id',
         ];
     }
 

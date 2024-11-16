@@ -5,10 +5,10 @@
         <div class="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="POST" class="card" action="{{ route('dashboard.doctor.update', $data->id) }}">
+                    <form method="POST" class="card" action="{{ route('dashboard.user.update', $data->id) }}">
                         @csrf
                         <div class="card-header">
-                            <div class="card-title">Update Doctor</div>
+                            <div class="card-title">Update User</div>
                         </div>
 
                         <div class="card-body">
@@ -42,49 +42,6 @@
                                         >
                                     </div>
                                     <div class="form-group">
-                                        <label for="phone">Phone Number</label>
-                                        <input
-                                                type="text"
-                                                class="form-control"
-                                                id="phone"
-                                                name="phone"
-                                                placeholder="Enter Phone"
-                                                value="{{ $data->phone }}"
-                                        />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="country"
-                                        >Country</label
-                                        >
-                                        <select
-                                                class="form-select"
-                                                id="country_id"
-                                                name="country_id"
-                                        >
-                                            <option value="" >choose country</option>
-                                            @foreach($countries as $country)
-                                                <option value="{{$country->id}}" @if($country->id == $data->country_id) selected @endif>
-                                                    {{$country->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="city"
-                                        >Country</label
-                                        >
-                                        <select
-                                                class="form-select"
-                                                id="city_id"
-                                                name="city_id"
-                                        >
-                                            <option value="" >choose city</option>
-                                            @foreach($cities as $city)
-                                                <option value="{{$city->id}}" @if($city->id == $data->city_id) selected @endif>
-                                                    {{$city->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="exampleFormControlSelect1"
                                         >Status</label
                                         >
@@ -102,7 +59,7 @@
                         </div>
                         <div class="card-action">
                             <button type="submit" class="btn btn-success">Submit</button>
-                            <a href="{{  route('dashboard.doctor.index') }}" class="btn btn-danger">Cancel</a>
+                            <a href="{{  route('dashboard.user.index') }}" class="btn btn-danger">Cancel</a>
                         </div>
                     </form>
                 </div>

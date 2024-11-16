@@ -25,7 +25,10 @@ class EditRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|email|unique:doctors,email,' . $this->id . ',id',
+            'email' => 'required|email|unique:users,email,' . $this->id . ',id',
+            'country_id' => 'required|exists:countries,id',
+            'city_id' => 'required|exists:cities,id',
+            'phone' => 'required|numeric|unique:users,phone,' . $this->id . ',id',
         ];
     }
 }

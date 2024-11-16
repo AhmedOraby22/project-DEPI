@@ -20,6 +20,14 @@ class User extends Authenticatable
         'email',
         'password',
         'status',
+        'role',
+        'birthdate',
+        'phone',
+        'gender',
+        'avatar',
+        'rate',
+        'country_id',
+        'city_id'
     ];
     protected $casts = [
         'password' => 'hashed',
@@ -32,4 +40,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password'
     ];
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }

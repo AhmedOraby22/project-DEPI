@@ -46,6 +46,7 @@ class UserController extends Controller
             'birthdate' => $validatedData['birthdate'],
             'password' => Hash::make($validatedData['password']),
             'avatar' => $avatarPath,
+            'role' => 3,
         ]);
         // Redirect or show a success message
         return redirect()->route('login')->with('success', 'Account created successfully!');
