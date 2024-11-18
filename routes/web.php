@@ -46,3 +46,7 @@ Route::middleware('guest')->group(function()
 Route::resource('doctors', DoctorController::class);
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+
+Route::get('/blog', function () {
+    return view('blog');
+});
