@@ -63,12 +63,12 @@
                         <p>Department</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{route('dashboard.blog.index')}}">
                         <i class="fas fa-file"></i>
                         <p>Blog</p>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

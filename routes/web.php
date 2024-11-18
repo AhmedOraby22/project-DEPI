@@ -28,7 +28,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Route::get('/about-us', [PageController::class, 'about-us'])->name('about-us');
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
 
-Route::get('/about-us', [PageController::class, 'about'])->name('about');
+// Route::get('/about-us', [PageController::class, 'about'])->name('about');
 
 // Route for showing the registration form
 Route::get('/register', [UserController::class, 'create'])->name('register');
@@ -75,3 +75,6 @@ Route::middleware('guest')->group(function () {
 
 // Routes for managing doctors
 Route::resource('doctors', DoctorController::class);
+
+
+Route::view('/search','web.search')->name('search');

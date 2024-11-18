@@ -23,6 +23,8 @@
     <link rel="manifest" href="{{asset('web_asset/public/assets/img/favicons/manifest.json')}}">
     <meta name="msapplication-TileImage" content="{{asset('web_asset/public/assets/img/favicons/mstile-150x150.png')}}">
     <meta name="theme-color" content="#ffffff">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('web_asset/css/style.css')}}">
 
 
     <!-- ===============================================-->
@@ -30,4 +32,5 @@
  Stylesheets-->
     <!-- ===============================================-->
     <link href="{{asset('web_asset/public/assets/css/theme.css')}}" rel="stylesheet" />
+    
 </head>
