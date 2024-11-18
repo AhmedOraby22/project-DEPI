@@ -16,4 +16,10 @@ class HomeController extends Controller
         $blogs = Blog::where('status', 1)->get();
         return view('web.home',get_defined_vars()); // Ensure 'home' corresponds to 'resources/views/home.blade.php'
     }
+
+    public function about()
+    {
+        return view('web.about',get_defined_vars()); // Ensure 'home' corresponds to 'resources/views/home.blade.php'
+
+    }
 }
