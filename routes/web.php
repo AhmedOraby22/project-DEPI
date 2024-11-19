@@ -59,3 +59,11 @@ Route::get('/blog', function () {
 
 
 Route::view('/search','web.search')->name('search');
+
+Route::get('/department-doctors', function () {
+    return view('web.departmentdoctors');
+});
+
+Route::get('/department-doctors2', function () {
+    return view('web.departmentdoctors2');
+});
