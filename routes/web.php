@@ -67,3 +67,5 @@ Route::get('/department-doctors', function () {
 Route::get('/department-doctors2', function () {
     return view('web.departmentdoctors2');
 });
+
+Route::view('/department','web.departement')->name('dep');
