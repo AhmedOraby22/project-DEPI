@@ -59,3 +59,4 @@ Route::get('/blog', function () {
 
 
 Route::view('/search','web.search')->name('search');
+Route::view('/department','web.departement')->name('dep');
