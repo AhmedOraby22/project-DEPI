@@ -8,7 +8,7 @@ use App\Http\Controllers\Web\UserController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AboutUsController;
 // Route for the home page
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -17,7 +17,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 // Route::get('/about-us', [PageController::class, 'about-us'])->name('about-us');
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
 
-Route::get('/about-us', [PageController::class, 'about'])->name('about');
+// Route::get('/about-us', [PageController::class, 'about'])->name('about');
 
 // Route for showing the registration form
 Route::get('/register', [UserController::class, 'create'])->name('register');

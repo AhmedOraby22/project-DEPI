@@ -13,9 +13,9 @@
             <div class="col-6 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
                 <h5 class="lh-lg fw-bold mb-4 text-light font-sans-serif">Departments</h5>
                 <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    @foreach($departments as $department)
+                    {{-- @foreach($departments as $department)
                     <li class="lh-lg"><a class="footer-link" href="#!">{{$department->name}}</a></li>
-                    @endforeach
+                    @endforeach --}}
                 </ul>
             </div>
             <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
