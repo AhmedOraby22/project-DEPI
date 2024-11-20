@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\DoctorController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\Dashboard\CountryController;
 use App\Http\Controllers\Dashboard\PatientController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\DepartmentController;
+use App\Http\Controllers\Dashboard\BlogController;
 
 Route::get('/home', function()
 {
@@ -75,6 +77,15 @@ Route::controller(ContactController::class)->prefix('/contact')->name('contact.'
 Route::resource('department', DepartmentController::class, ['except' => ['show', 'update']])
     ->parameters(['department' => 'id']);
 Route::controller(DepartmentController::class)->prefix('/department')->name('department.')->group(
+    function()
+    {
+        Route::post('{id}', 'update')->name('update');
+        Route::get('{id}', 'edit')->name('edit');
+    }
+);
+Route::resource('blog',BlogController::class, ['except' => ['show', 'update']])
+    ->parameters(['blog' => 'id']);
+Route::controller(BlogController::class)->prefix('/blog')->name('blog.')->group(
     function()
     {
         Route::post('{id}', 'update')->name('update');

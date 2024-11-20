@@ -8,9 +8,9 @@
     <div class="container">
         <br>
         <div class="card-header row">
-            <div class="card-title col-6">List of Departments</div>
+            <div class="card-title col-6">List of blogs</div>
             <div class="card-title col-6 text-end">
-                <a href="{{ route('dashboard.department.create') }}"
+                <a href="{{ route('dashboard.blog.create') }}"
                    class="btn btn-warning btn-sm position-absoluter-right">Create</a></div>
 
         </div>
@@ -32,14 +32,14 @@
                         <td>{{ $data->name }}</td>
                         <td>{{ $data->status ? 'active' : 'unactive' }}</td>
                         <td>
-                            <a href="{{ route('dashboard.department.edit', $data->id) }}"
+                            <a href="{{ route('dashboard.blog.edit', $data->id) }}"
                                class="btn btn-warning btn-sm">Update</a>
 
 
                             <br>
                             <br>
 
-                            <form action="{{ route('dashboard.department.destroy', $data->id) }}" method="post"
+                            <form action="{{ route('dashboard.blog.destroy', $data->id) }}" method="post"
                                   style="display:inline;">
                                 @csrf
                                 @method('DELETE')
