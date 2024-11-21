@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <Files ~ "\.(env|env.exampl|json|config.js|md|gitignore|gitattributes|lock)$">
     Order allow,deny
     Deny from all
