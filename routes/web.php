@@ -2,22 +2,12 @@
 
 
 use Illuminate\Support\Facades\Route;
-
-
-
-
-
-
-
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ForgotPsswordController;
-
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CityController;
-
 use App\Http\Controllers\ReservationController;
-
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\ForgotPasswordController;
 use App\Http\Controllers\Web\HomeController;
@@ -25,7 +15,6 @@ use App\Http\Controllers\Web\LoginController;
 use App\Http\Controllers\Web\UserController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProfileController;
-
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\web\FaqController;

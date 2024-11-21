@@ -11,11 +11,9 @@ class CreateFaqsTable extends Migration
      */
     public function up(): void
     {
-<<<<<<< HEAD
-        Schema::create('faqs1', function (Blueprint $table) {
-=======
-        Schema::create('faq', function (Blueprint $table) {
->>>>>>> 9cbbb0c879e90d128002f0c28c3d97280d4ab73e
+
+        Schema::create('Faq', function (Blueprint $table) {
+
             $table->id();
             $table->string('question');
             $table->text('answer');
@@ -28,7 +26,7 @@ class CreateFaqsTable extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('faqs1');
+        Schema::dropIfExists('Faq');
     }
 }
 
