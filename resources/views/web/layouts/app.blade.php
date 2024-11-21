@@ -26,7 +26,7 @@
                             </strong>for<br />your&nbsp;<strong>better life.</strong></h1>
                         <p class="fs-1 mb-5">You can get the care you need 24/7 – be it online or in <br />person. You
                             will be treated by caring specialist doctors. </p><a
-                            class="btn btn-lg btn-primary rounded-pill" href="#!" role="button">Make an Appointment</a>
+                            class="btn btn-lg btn-primary rounded-pill" href="{{route('reservation')}}" role="button">Make an Appointment</a>
                     </div>
                 </div>
             </div>

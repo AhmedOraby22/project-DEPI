@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\City;
+use App\Models\Country;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -13,9 +15,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
-            'name' => 'User01',
-        ]);
+        Country::updateOrCreate(['name'=>'egypt']);
+        $x=random_int(10,20);
+        for($i=0;$i<=$x ;$i++)
+        {
+            City::create(['name'=>'city'.$i]);
+        }
 
+        for($i=0;$i<=$x ;$i++)
+        {
+        User::factory()->create([
+            'name' => 'User'.random_int(0,10000000000000),
+        ]);
+        }
     }
 }
