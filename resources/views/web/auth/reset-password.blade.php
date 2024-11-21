@@ -24,8 +24,17 @@
                             <h2 class="text-uppercase text-center mb-5">Reset your Password</h2>
                             <form action="{{route('password.update')}}" method="post">
                                 @csrf
-                                <input type="hidden" name="token" value="{{$token}}">
+                       {{--         <input type="hidden" name="token" value="{{$token}}">--}}
                                 <div class="row align-items-center">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="form3Example1cg">Your Code</label>
+                                        <input type="text" id="form3Example1cg" class="form-control input @error('code') ring-red-500 @enderror" required value="{{ old('code') }}" />
+                                        @error('code')
+                                        <p class="error">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="row align-items-center">
                                     <div class="mb-3">
                                         <label class="form-label" for="form3Example1cg">Your Email</label>
                                         <input type="text" id="form3Example1cg" class="form-control input @error('email') ring-red-500 @enderror" required value="{{ old('email') }}" />

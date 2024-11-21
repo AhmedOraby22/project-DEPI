@@ -1052,6 +1052,7 @@
         },
         {
             "name": "laravel/framework",
+
             "version": "v11.23.5",
             "source": {
                 "type": "git",
@@ -1062,6 +1063,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/16b31ab0e1dad5cb2ed6dcc1818c02f02fc48453",
                 "reference": "16b31ab0e1dad5cb2ed6dcc1818c02f02fc48453",
+
+            "version": "v11.22.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "868c75beacc47d0f361b919bbc155c0b619bf3d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/868c75beacc47d0f361b919bbc155c0b619bf3d5",
+                "reference": "868c75beacc47d0f361b919bbc155c0b619bf3d5",
+
                 "shasum": ""
             },
             "require": {
@@ -1256,7 +1269,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+
             "time": "2024-09-13T13:36:30+00:00"
+
+            "time": "2024-09-03T15:27:15+00:00"
+
         },
         {
             "name": "laravel/prompts",
@@ -5861,6 +5878,7 @@
         },
         {
             "name": "laravel/sail",
+
             "version": "v1.32.0",
             "source": {
                 "type": "git",
@@ -5871,6 +5889,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/sail/zipball/4a7e41d280861ca7e35710cea011a07669b4003b",
                 "reference": "4a7e41d280861ca7e35710cea011a07669b4003b",
+
+            "version": "v1.31.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/sail.git",
+                "reference": "0a7e2891a85eba2d448a9ffc6fc5ce367e924bc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/0a7e2891a85eba2d448a9ffc6fc5ce367e924bc1",
+                "reference": "0a7e2891a85eba2d448a9ffc6fc5ce367e924bc1",
+
                 "shasum": ""
             },
             "require": {
@@ -5920,7 +5950,11 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
+
             "time": "2024-09-11T20:14:29+00:00"
+
+            "time": "2024-09-03T20:05:33+00:00"
+
         },
         {
             "name": "mockery/mockery",
@@ -6605,6 +6639,7 @@
         },
         {
             "name": "phpunit/phpunit",
+
             "version": "11.3.6",
             "source": {
                 "type": "git",
@@ -6615,6 +6650,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d62c45a19c665bb872c2a47023a0baf41a98bb2b",
                 "reference": "d62c45a19c665bb872c2a47023a0baf41a98bb2b",
+
+            "version": "11.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/phpunit.git",
+                "reference": "d2ef57db1410b102b250e0cdce6675a60c2a993d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d2ef57db1410b102b250e0cdce6675a60c2a993d",
+                "reference": "d2ef57db1410b102b250e0cdce6675a60c2a993d",
+
                 "shasum": ""
             },
             "require": {
@@ -6685,7 +6732,11 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
+
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/11.3.6"
+
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.3.4"
+
             },
             "funding": [
                 {
@@ -6701,7 +6752,11 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2024-09-19T10:54:28+00:00"
+
+            "time": "2024-09-09T06:08:34+00:00"
+
         },
         {
             "name": "sebastian/cli-parser",

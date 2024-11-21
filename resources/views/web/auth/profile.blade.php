@@ -10,26 +10,35 @@
 <body>
     @include('web.layouts.nav')
     <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-6 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <!-- Display user profile image or a default image if none exists -->
-                    <img class="rounded-circle mt-5" width="150px"
-                        src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('path/to/default/image.jpg') }}"
-                        alt="Profile Image">
-                    <div class="mb-3">
-                        <label for="formFileSm" class="form-label">Upload Image</label>
-                        <input class="form-control form-control-sm" id="formFileSm" type="file" name="profile_image">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <form method="POST" action="{{ route('web.profile.update',$user->id) }}" enctype="multipart/form-data">
+            @csrf
+            @method('POST')
+            <div class="row">
+                <div class="col-md-6 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                        <!-- Display user profile image or a default image if none exists -->
+                        <img class="rounded-circle mt-5" width="150px"
+                            src="{{ $user->avatar ? asset('avatars/' . $user->avatar) : asset('path/to/default/image.jpg') }}"
+                            alt="Profile Image">
+                        <div class="mb-3">
+                            <label for="formFileSm" class="form-label">Upload Image</label>
+                            <input class="form-control form-control-sm" id="formFileSm" type="file" name="avatar">
+                        </div>
+                        <span class="font-weight-bold">{{ $user->name }}</span>
+                        <span class="text-black-50">{{ $user->email }}</span>
                     </div>
-                    <span class="font-weight-bold">{{ $user->name }}</span>
-                    <span class="text-black-50">{{ $user->email }}</span>
                 </div>
-            </div>
-            <div class="col-md-6 border-right">
-                <form method="POST" action="{{ route('profile.update', ['id' => $user->id]) }}"
-                    enctype="multipart/form-data">
-                    @csrf
-                    @method('PATCH')
+                <div class="col-md-6 border-right">
+
                     <div class="p-3 py-5">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">Profile Settings</h4>
@@ -72,26 +81,28 @@
                             <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
                         </div>
                     </div>
-                </form>
+        </form>
 
-                <!-- Form to delete user -->
-                <form method="POST" action="{{ route('profile.destroy', ['id' => $user->id]) }}"
-                    onsubmit="return confirm('Are you sure you want to delete your account?');">
-                    @csrf
-                    @method('DELETE')
-                    <div class="mt-5 text-center">
-                        <button class="btn btn-danger" type="submit">Delete Account</button>
-                    </div>
-                </form>
-
+        <!-- Form to delete user -->
+        <form method="POST" action="{{ route('profile.destroy', ['id' => $user->id]) }}"
+            onsubmit="return confirm('Are you sure you want to delete your account?');">
+            @csrf
+            @method('DELETE')
+            <div class="mt-5 text-center">
+                <button class="btn btn-danger" type="submit">Delete Account</button>
             </div>
-        </div>
+        </form>
+
+    </div>
+    </div>
     </div>
 
     @yield('content')
 
     @include('web.layouts.script')
 </body>
+
+
 
 
 </html>
