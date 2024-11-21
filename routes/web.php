@@ -9,6 +9,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\web\FaqController;
 // Route for the home page
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -69,3 +70,7 @@ Route::get('/department-doctors2', function () {
 });
 
 Route::view('/department','web.departement')->name('dep');
+
+Route::get('/faq',[FaqController::class, 'index'])->name('faq.show');
+
+Route::post('/faq_post',[FaqController::class, 'store'])->name('faq.store');

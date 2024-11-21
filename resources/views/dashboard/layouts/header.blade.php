@@ -28,7 +28,7 @@
                     >
                         <div class="avatar-sm">
                             <img
-                                    src="assets/img/profile.jpg"
+                                    src="{{asset('dashboard_asset/assets/img/profile.jpg')}}"
                                     alt="..."
                                     class="avatar-img rounded-circle"
                             />
