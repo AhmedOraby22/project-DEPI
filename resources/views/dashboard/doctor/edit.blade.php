@@ -99,7 +99,7 @@
                                                 name="department_id"
                                         >
                                             <option value="" >choose department</option>
-                                            @foreach($departments as $department)
+                                            @foreach($Departments as $department)
                                                 <option value="{{$department->id}}" @if($department->id == $data->department_id) selected @endif>
                                                     {{$department->name}}</option>
                                             @endforeach

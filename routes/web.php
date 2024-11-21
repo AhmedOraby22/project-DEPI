@@ -9,7 +9,10 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\web\FaqController;
+use App\Http\Controllers\SearchController;
+
 // Route for the home page
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -54,12 +57,12 @@ Route::resource('doctors', DoctorController::class);
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 
-Route::get('/blog', function () {
-    return view('blog');
-});
+Route::get('/blog/{blog}',[BlogController::class, 'index'])->name('blog');
 
 
-Route::view('/search','web.search')->name('search');
+Route::get('/search',[SearchController::class, 'index'])->name('search');
+
+Route::post('/search',[SearchController::class, 'show'])->name('search-d');
 
 Route::get('/department-doctors', function () {
     return view('web.departmentdoctors');
