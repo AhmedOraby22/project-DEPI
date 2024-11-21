@@ -12,8 +12,7 @@ class CreateFaqsTable extends Migration
     public function up(): void
     {
 
-        Schema::create('Faq', function (Blueprint $table) {
-
+        Schema::create('faq', function (Blueprint $table) {
             $table->id();
             $table->string('question');
             $table->text('answer');

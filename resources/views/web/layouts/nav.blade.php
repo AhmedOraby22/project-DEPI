@@ -5,10 +5,11 @@
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
               <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{route('about-us')}}">About Us</a></li>
               <li class="nav-item px-2"><a class="nav-link" href="{{route('home')}}#departments">Departments</a></li>
-              <li class="nav-item px-2"><a class="nav-link" href="{{route('web.faqs.index')}}">F&Q</a></li>
+              {{-- <li class="nav-item px-2"><a class="nav-link" href="{{route('web.faqs.index')}}">F&Q</a></li> --}}
               <li class="nav-item px-2"><a class="nav-link" href="{{route('reservation.store')}}">APPINTMENT</a></li>
               <li class="nav-item px-2"><a class="nav-link" href="{{route('search')}}">search</a></li>
-              {{-- <li class="nav-item px-2"><a class="nav-link" href="{{route('faq.show')}}">F&Q</a></li> --}}
+              <li class="nav-item px-2"><a class="nav-link" href="{{route('faq.show')}}">F&Q</a></li>
+
 
             </ul>
               @if(Auth::id())

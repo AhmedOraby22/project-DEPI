@@ -91,7 +91,7 @@ Route::get('/faqs', [FaqController::class, 'index'])->name('web.faqs.index');
 
 Route::get('/reservation', function () {
     return view('reservation-form');
-});
+})->name('reservation');
 
 Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
 
