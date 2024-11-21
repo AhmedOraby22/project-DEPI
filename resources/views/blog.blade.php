@@ -430,19 +430,19 @@ img {
                         </div>
                         <div class="article-title">
                             <h6><a href="#">Lifestyle</a></h6>
-                            <h2>They Now Bade Farewell To The Kind But Unseen People</h2>
+                            <h2>{{$blogs->title}}</h2>
                             <div class="media">
                                 <div class="avatar">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar1.png" title="" alt="">
                                 </div>
                                 <div class="media-body">
-                                    <label>Rachel Roth</label>
-                                    <span>26 FEB 2020</span>
+                                    <label>{{$blogs->name}}</label>
+                                    <span>{{$blogs->created_at->format('d M, Y')}}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="article-content">
-                            <p>Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim. Venenatis eget adipiscing luctus lorem. Adipiscing veni amet luctus enim sem libero tellus viverra venenatis aliquam. Commodo natoque quam pulvinar elit.</p>
+                            <p>{{$blogs->description}}</p>
                             <p>Eget aenean tellus venenatis. Donec odio tempus. Felis arcu pretium metus nullam quam aenean sociis quis sem neque vici libero. Venenatis nullam fringilla pretium magnis aliquam nunc vulputate integer augue ultricies cras. Eget viverra feugiat cras ut. Sit natoque montes tempus ligula eget vitae pede rhoncus maecenas consectetuer commodo condimentum aenean.</p>
                             <h4>What are my payment options?</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>

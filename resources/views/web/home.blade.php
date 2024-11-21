@@ -176,8 +176,8 @@
                                             <p class="text-600 mb-0">{{$doctor->country->name .','.$doctor->city->name }}</p>
                                             <p class="text-600 mb-4">10 years experience</p>
                                             <div class="text-center">
-                                                <button class="btn btn-outline-secondary rounded-pill"
-                                                    type="submit">View Profile</button>
+                                                <a href="{{url('/profile')}}"><button class="btn btn-outline-secondary rounded-pill"
+                                                    type="submit">View Profile</button></a>
                                             </div>
                                         </div>
                                     </div>
@@ -431,7 +431,7 @@
                             </path>
                         </svg><span class="fs--1 text-900">{{$blog->created_at->format('d M, Y')}}</span><span class="fs--1"></span>
                         <h5 class="font-base fs-lg-0 fs-xl-1 my-3">{{$blog->name}}</h5><a
-                            class="stretched-link" href="#!">read full article</a>
+                            class="stretched-link" href="{{route('blog',[$blog->id])}}">read full article</a>
                     </div>
                 </div>
             </div>

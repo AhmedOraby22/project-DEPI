@@ -1,5 +1,23 @@
 <?php
 
+
+use Illuminate\Support\Facades\Route;
+
+
+
+
+
+
+
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\ForgotPsswordController;
+
+use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\CityController;
+
+use App\Http\Controllers\ReservationController;
+
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\ForgotPasswordController;
 use App\Http\Controllers\Web\HomeController;
@@ -7,9 +25,15 @@ use App\Http\Controllers\Web\LoginController;
 use App\Http\Controllers\Web\UserController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\AboutUsController;
-// Route for the home page
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\web\FaqController;
+use App\Http\Controllers\SearchController;
+
+
+
+   
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 // Route for the about us page
@@ -48,17 +72,53 @@ Route::middleware('guest')->group(function()
     Route::post('/reset-password', [ForgotPasswordController::class, 'passwordUpdate'])->name('password.update');
 });
 
+Route::middleware('auth:admin')->group(function()
+{
+    Route::get('/add_country', [CountryController::class, 'index']);
+    // Route::view('/add_country','web.form.country');
+    Route::post('/add_country', [CountryController::class, 'create']);
+    Route::get('/show_country', [CountryController::class, 'show'])->name('showcountry');
+    Route::get('/add_city', [CityController::class, 'index'])->name('showcity');
+    // Route::view('/add_city','web.form.city');
+
+    Route::post('/add_city',[CityController::class,'create']);
+    
+    Route::get('/show_city',[CityController::class,'show']);
+    
+    Route::get('/delete_city/{id}',[CityController::class,'destroy']);
+    Route::get('/edit_city/{id}',[CityController::class,'edit']);
+    Route::put('update-city/{id}',[CityController::class,'update']);
+    
+    
+    Route::get('delete_country/{id}',[CountryController::class,'destroy']);
+    Route::get('edit_country/{id}',[CountryController::class,'edit']);
+    Route::put('update-country/{id}',[CountryController::class,'update']);
+    
+
+});
+
+Route::get('/faqs', [FaqController::class, 'index'])->name('web.faqs.index');
+
+
+Route::get('/reservation', function () {
+    return view('reservation-form');
+});
+
+Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+
+
+
 // Routes for managing doctors
 Route::resource('doctors', DoctorController::class);
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 
-Route::get('/blog', function () {
-    return view('blog');
-});
+Route::get('/blog/{blog}',[BlogController::class, 'index'])->name('blog');
 
 
-Route::view('/search','web.search')->name('search');
+Route::get('/search',[SearchController::class, 'index'])->name('search');
+
+Route::post('/search',[SearchController::class, 'show'])->name('search-d');
 
 Route::get('/department-doctors', function () {
     return view('web.departmentdoctors');
@@ -69,3 +129,8 @@ Route::get('/department-doctors2', function () {
 });
 
 Route::view('/department','web.departement')->name('dep');
+
+Route::get('/faq',[FaqController::class, 'index'])->name('faq.show');
+
+Route::post('/faq_post',[FaqController::class, 'store'])->name('faq.store');
+

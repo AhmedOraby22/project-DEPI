@@ -17,6 +17,14 @@ return [
     */
 
 
+<<<<<<< HEAD
+      'default' => env('DB_CONNECTION', 'mysql'),
+     
+
+
+    'default' => env('DB_CONNECTION', 'sqlite'),
+=======
+>>>>>>> 9cbbb0c879e90d128002f0c28c3d97280d4ab73e
 
     'default' => env('DB_CONNECTION', 'mysql'),
 
@@ -31,6 +39,7 @@ return [
     | is supported by Laravel. You're free to add / remove connections.
     |
     */
+
 
     'connections' => [
 
@@ -173,4 +182,10 @@ return [
 
     ],
 ];
+
+
+
+
+
+
 

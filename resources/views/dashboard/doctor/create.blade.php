@@ -124,7 +124,7 @@
                                                 name="department_id"
                                         >
                                             <option value="" >choose department</option>
-                                            @foreach($cities as $department)
+                                            @foreach($Departments as $department)
                                                 <option value="{{$department->id}}" >
                                                     {{$department->name}}</option>
                                             @endforeach
