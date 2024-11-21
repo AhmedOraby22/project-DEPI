@@ -5,13 +5,13 @@
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
               <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{route('about-us')}}">About Us</a></li>
               <li class="nav-item px-2"><a class="nav-link" href="{{route('home')}}#departments">Departments</a></li>
-<<<<<<< HEAD
+
               <li class="nav-item px-2"><a class="nav-link" href="{{route('web.faqs.index')}}">F&Q</a></li>
-              <li class="nav-item px-2"><a class="nav-link" href="{{route('reservation.store')}}">APPINTMENT</a></li>
-=======
+              <li class="nav-item px-2"><a class="nav-link" href="{{route('reservation.store')}}">APPOINTMENT</a></li>
+
               <li class="nav-item px-2"><a class="nav-link" href="{{route('search')}}">search</a></li>
-              <li class="nav-item px-2"><a class="nav-link" href="{{route('faq.show')}}">F&Q</a></li>
->>>>>>> 9cbbb0c879e90d128002f0c28c3d97280d4ab73e
+   
+
             </ul>
               @if(Auth::id())
                 <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{{route('web.profile.show',\Illuminate\Support\Facades\Auth::id())}}">Profile</a>

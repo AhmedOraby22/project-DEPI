@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->id();
-            $table->string('email')->index();
-            $table->string('code');
-            $table->timestamps();
-        });
+        // تحقق من وجود الجدول قبل إنشائه
+        if (!Schema::hasTable('password_reset_tokens')) {
+            Schema::create('password_reset_tokens', function (Blueprint $table) {
+                $table->id();
+                $table->string('email')->unique();
+                $table->string('code');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
@@ -27,3 +30,4 @@ return new class extends Migration
         Schema::dropIfExists('password_reset_tokens');
     }
 };
+

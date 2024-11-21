@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Dashboard;
-
+use App\Models\Patient;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Patient\EditRequest;
 use App\Models\User;
@@ -18,40 +18,39 @@ class PatientController extends Controller
      */
     public function index(Request $request)
     {
-        $datas = User::where('role',3)->get();
-        return view('dashboard.patient.index', ['datas' => $datas]);
+        $patients = Patient::all();  
+        return view('dashboard.patient.index', compact('patients')); 
     }
 
     public function edit($id)
     {
-        $data = User::find($id);
-        return view('dashboard.patient.edit', compact('data'));
+        $patients = Patient::find($id);  
+        return view('dashboard.patient.edit', compact('patients'));
     }
     public function update(EditRequest $request, $id)
     {
-        $data = User::find($id);
-        $data = $data->update($request->all());
-        if($data)
-        {
-            return redirect(route('dashboard.patient.index', $id))->with("message", 'Done');
+        $patients = Patient::find($id); 
+        if ($patients) {
+            $patients->update($request->all());  
+            return redirect(route('dashboard.patient.index'))->with('message', 'Patient updated successfully.');
         }
-        return redirect(route('dashboard.patient.edit', $id))->with('message_false','problem');
+        return redirect(route('dashboard.patient.edit', $id))->with('message_false', 'Patient not found.');
     }
 
     public function show($id)
     {
-        $data = User::find($id);
-        return view('dashboard.patient.profile', compact('data'));
+        $patients = Patient::find($id); 
+        return view('dashboard.patient.profile', compact('patients'));
     }
 
     public function destroy($id)
     {
-        $data = User::find($id);
-        if($data)
-        {
-            $data->delete();
-            return redirect(route('dashboard.patient.index'))->with("message", 'Done');
+        $patients = Patient::find($id);  // ابحث عن المريض باستخدام الـ id
+        if ($patients) {
+            $patients->delete();  // احذف المريض من قاعدة البيانات
+            return redirect(route('dashboard.patient.index'))->with('message', 'Patient deleted successfully.');
         }
-        return redirect(route('dashboard.patient.index'))->with('message_false','problem');
+        return redirect(route('dashboard.patient.index'))->with('message_false', 'Patient not found.');
     }
+    
 }

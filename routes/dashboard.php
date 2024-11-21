@@ -58,7 +58,7 @@ Route::resource('patient', PatientController::class, ['except' => ['create','sto
 Route::controller(PatientController::class)->prefix('/patient')->name('patient.')->group(
     function()
     {
-        Route::post('{id}', 'update')->name('update');
+        Route::put('{id}', 'update')->name('update');
         Route::get('{id}', 'edit')->name('edit');
         Route::get('{id}', 'show')->name('show');
     }
@@ -92,3 +92,4 @@ Route::controller(BlogController::class)->prefix('/blog')->name('blog.')->group(
         Route::get('{id}', 'edit')->name('edit');
     }
 );
+Route::get('/patients', [PatientController::class, 'index'])->name('dashboard.patient.index');

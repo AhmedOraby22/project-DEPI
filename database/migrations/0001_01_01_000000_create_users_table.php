@@ -19,32 +19,6 @@ return new class extends Migration
     public function up(): void
 
     {
-        if (!Schema::hasTable('users')) {
-            Schema::create('users', function (Blueprint $table) {
-                $table->id();
-                $table->string('name');
-                $table->string('email')->unique()->index();
-                $table->string('password');
-                $table->string('status')->default(1);
-                $table->string('rate')->nullable();
-                $table->string('avatar')->nullable();
-                $table->string('gender')->nullable();
-                $table->string('phone')->nullable();
-                $table->date('birthdate')->nullable();
-                $table->string('role')->default(1);
-                $table->bigInteger('country_id')->unsigned()->index()->nullable();
-                $table->bigInteger('city_id')->unsigned()->index()->nullable();
-                $table->bigInteger('department_id')->unsigned()->index()->nullable();
-                $table->timestamps();
-            });
-        } else {
-            Schema::table('users', function (Blueprint $table) {
-                if (!Schema::hasColumn('users', 'role')) {
-                    $table->string('role')->default(1);
-                }
-            });
-        }
-    
 
         Schema::create('users', function (Blueprint $table) {
 
@@ -91,16 +65,7 @@ return new class extends Migration
 
         });
  
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
-
-            $table->string('email')->primary();
-
-            $table->string('token');
-
-            $table->timestamp('created_at')->nullable();
-
-
-        });
+     
  
         Schema::create('sessions', function (Blueprint $table) {
 
@@ -115,11 +80,16 @@ return new class extends Migration
             $table->longText('payload');
 
             $table->integer('last_activity')->index();
+
         });
+
     }
+ 
+    /**
 
+     * Reverse the migrations.
 
-  
+     */
 
     public function down(): void
 
@@ -133,10 +103,10 @@ return new class extends Migration
 
     }
 
+
 };
 
  
 
 
  
-
