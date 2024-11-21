@@ -38,5 +38,5 @@
 
         @include('web.layouts.script')
 </body>
-
+@include('web.layouts.footer')
 </html>

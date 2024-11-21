@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\User\CreateRequest;
 use App\Http\Requests\Dashboard\User\EditRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 /**
@@ -14,20 +13,14 @@ use Illuminate\Support\Facades\Hash;
  */
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth','admin');
-    }
-
     /**
      * param Request $request
      * get all user to manage it
      */
-    public function index(Request $request)
+    public function index()
     {
-        $perPage = $request->perPage ?? 10;
-        $users = User::where('is_admin',1)->paginate($perPage);
-        return view('dashboard.user.index', ['users' => $users]);
+        $datas = User::where('role',1)->get();
+        return view('dashboard.user.index', ['datas' => $datas]);
     }
 
     public function create()
@@ -37,12 +30,12 @@ class UserController extends Controller
 
     public function store(CreateRequest $request)
     {
-        $user = new User();
+        $data = new User();
         if (isset($request->password)) {
             $request->merge(['password' => Hash::make($request->password)]);
         }
-        $request->merge(['is_admin' => 1]);
-        $data = $user->create($request->all());
+        $request->merge(['role' => 1]);
+        $data = $data->create($request->all());
         if($data)
         {
             return redirect(route('dashboard.user.index'))->with("message", 'Done');
@@ -57,23 +50,22 @@ class UserController extends Controller
     }
     public function update(EditRequest $request, $id)
     {
-        $user = User::find($id);
-        $request->merge(['is_admin' => 1]);
-        $data = $user->update($request->all());
+        $data = User::find($id);
+        $data = $data->update($request->all());
         if($data)
         {
-            return redirect(route('dashboard.user.edit', $id))->with("message", 'Done');
+            return redirect(route('dashboard.user.index', $id))->with("message", 'Done');
         }
         return redirect(route('dashboard.user.edit', $id))->with('message_false','problem');
     }
 
-    public function profile($id)
+    public function show($id)
     {
         $data = User::find($id);
-        return view('dashboard.user.profile', compact('data'));
+        return view('dashboard.user.show', compact('data'));
     }
 
-    public function delete($id)
+    public function destroy ($id)
     {
         $data = User::find($id);
         if($data)

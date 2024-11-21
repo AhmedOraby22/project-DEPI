@@ -1,10 +1,10 @@
 @extends('dashboard.layouts.tables')
 
 @section('content')
-
+<a type="sumbit" href="{{url('/add_city')}}" class="btn btn-info">add city</a>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
 
             @if (session('status'))
                 <h6 class="alert alert-success">{{ session('status') }}</h6>
@@ -12,7 +12,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4>Edit & Update Student
+                    <h4>Edit & Update patient city & status
                     </h4>
                 </div>
                 <div class="card-body">

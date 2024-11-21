@@ -15,33 +15,42 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-
     protected $fillable = [
         'name',
         'email',
         'password',
-      'status',
-        'phone',
-        'rate',
-        'gender',
+        'status',
+        'role',
         'birthdate',
-        'is_admin',
-        'avatar', // Add this line
+        'phone',
+        'gender',
+        'avatar',
+        'rate',
+        'country_id',
+        'city_id'
     ];
-
     protected $casts = [
         'password' => 'hashed',
-        'email_verified_at' => 'datetime',
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password'
     ];
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }

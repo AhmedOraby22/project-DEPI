@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('password');
 
             $table->string('status')->default(1);
+<<<<<<< HEAD
 
             $table->string('phone')->unique();
 
@@ -48,8 +49,20 @@ return new class extends Migration
 
             $table->rememberToken();
 
+=======
+            $table->string('rate')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('phone')->nullable();
+            $table->date('birthdate')->nullable();
+            $table->string('role')->default(1);
+            $table->bigInteger('country_id')->unsigned()->index()->nullable();
+            $table->bigInteger('city_id')->unsigned()->index()->nullable();
+            $table->bigInteger('department_id')->unsigned()->index()->nullable();
+>>>>>>> 9cbbb0c879e90d128002f0c28c3d97280d4ab73e
             $table->timestamps();
 
+<<<<<<< HEAD
         });
  
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -59,6 +72,9 @@ return new class extends Migration
             $table->string('token');
 
             $table->timestamp('created_at')->nullable();
+=======
+       
+>>>>>>> 9cbbb0c879e90d128002f0c28c3d97280d4ab73e
 
         });
  
@@ -98,6 +114,17 @@ return new class extends Migration
 
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('users');
+        Schema::dropIfExists('sessions');
+    }
+>>>>>>> 9cbbb0c879e90d128002f0c28c3d97280d4ab73e
 };
 
  

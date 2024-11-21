@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -7,24 +8,41 @@ use Illuminate\Support\Facades\Route;
 
 
 
-use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ForgotPsswordController;
-use App\Http\Controllers\ProfileController;
+
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CityController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\FaqController;
+
 use App\Http\Controllers\ReservationController;
+
+use App\Http\Controllers\Web\ContactController;
+use App\Http\Controllers\Web\ForgotPasswordController;
+use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\LoginController;
+use App\Http\Controllers\Web\UserController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\ProfileController;
+
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\web\FaqController;
+use App\Http\Controllers\SearchController;
+
 
 
    
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 // Route for the about us page
-Route::get('/about-us', [PageController::class, 'about'])->name('about');
+
+// Route::get('/about-us', [PageController::class, 'about-us'])->name('about-us');
+Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
+
+// Route::get('/about-us', [PageController::class, 'about'])->name('about');
+
 // Route for showing the registration form
 Route::get('/register', [UserController::class, 'create'])->name('register');
 // Route for storing the registration data
@@ -33,57 +51,27 @@ Route::post('/register', [UserController::class, 'store'])->name('register.store
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 // Route for handling login submissions
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+// Route for logging out
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-// Route for showing the home page (ensure you have the home view at this path)
-Route::get('/home', function()
-{
-    return view('web.home');
-});
 // Route for showing the user profile (protected by authentication)
 Route::get('/profile', [UserController::class, 'showProfile'])->name('profile')->middleware('auth');
+// Route for updating the profile
 Route::post('/profile/{id}', [UserController::class, 'update'])->name('web.profile.update');
 // Route for showing the profile of a specific user (protected by authentication)
 Route::get('/profile/{id}', [UserController::class, 'showUserProfile'])->name('web.profile.show')->middleware('auth');
+// Route for deleting a profile
 Route::delete('/profile/{id}', [UserController::class, 'destroy'])->name('profile.destroy');
-Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.show');
+// Route for sending a contact message
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
-// Route for contact us page
-Route::get('/contactus', function()
-{
-    return view('web.form.contactus');
-});
-Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('dashboard.adminlogin');
-Route::post('/admin/login', [AdminAuthController::class, 'login']);
-Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('dashboard.logout');
-Route::get('/dashboard/home', function()
-{
-    $admin = Auth::guard('admin')->user();
-    return view('dashboard.home');
-});
-Route::get('/admin/profile', function()
-{
-    $admin = Auth::guard('admin')->user(); // Ensure admin is authenticated
-    $admin = Auth::guard('admin')->user();
-    return view('dashboard.profile.index', compact('admin'));
-})->name('admin.profile')->middleware('auth:admin');
-Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
-// routes/web.php
-// عرض جميع الرسائل للإداريين
-Route::get('/admin/contacts', [ContactController::class, 'listContacts'])->name('contacts.list');
-// Contact Routes
-Route::get('/contacts', [ContactController::class, 'listContacts'])->name('contacts.index');
-Route::get('/contacts/{id}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
-Route::patch('/contacts/{id}', [ContactController::class, 'update'])->name('contacts.update');
-Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
-Route::post('/contacts/{id}/mark-as-read', [ContactController::class, 'markAsRead'])->name('contacts.markAsRead');
+// Routes for password management
 Route::middleware('guest')->group(function()
 {
     Route::view('/forgot-password', 'web.auth.forgot-password')->name('password.request');
-    Route::post('/forgot-password', [ForgotPsswordController::class, 'forgotPassword']);
-    //Route::get('/reset-password/{token}', [ForgotPsswordController::class, 'passwordReset'])->name('password.reset');
-    Route::post('/reset-password', [ForgotPsswordController::class, 'passwordUpdate'])->name('password.update');
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPassword']);
+    Route::get('/reset-password', [ForgotPasswordController::class, 'passwordReset'])->name('password.reset');
+    Route::post('/reset-password', [ForgotPasswordController::class, 'passwordUpdate'])->name('password.update');
 });
+
 Route::middleware('auth:admin')->group(function()
 {
     Route::get('/add_country', [CountryController::class, 'index']);
@@ -117,4 +105,32 @@ Route::get('/reservation', function () {
 });
 
 Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+
+
+
+// Routes for managing doctors
+Route::resource('doctors', DoctorController::class);
+
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+
+Route::get('/blog/{blog}',[BlogController::class, 'index'])->name('blog');
+
+
+Route::get('/search',[SearchController::class, 'index'])->name('search');
+
+Route::post('/search',[SearchController::class, 'show'])->name('search-d');
+
+Route::get('/department-doctors', function () {
+    return view('web.departmentdoctors');
+});
+
+Route::get('/department-doctors2', function () {
+    return view('web.departmentdoctors2');
+});
+
+Route::view('/department','web.departement')->name('dep');
+
+Route::get('/faq',[FaqController::class, 'index'])->name('faq.show');
+
+Route::post('/faq_post',[FaqController::class, 'store'])->name('faq.store');
 

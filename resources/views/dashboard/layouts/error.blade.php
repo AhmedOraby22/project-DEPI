@@ -16,7 +16,8 @@
     </script>
     @php
         session()->forget('message');
-    @endphp@elseif(session()->has('message_false'))
+    @endphp
+@elseif(session()->has('message_false'))
     <script>
         //Notify
         $.notify({
@@ -35,5 +36,14 @@
     @php
         session()->forget('message_false');
     @endphp
+@endif
+@if(count($errors)>0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
 @yield('error')

@@ -33,60 +33,17 @@
 
     <div class="container">
         <div class="row py-5 align-items-center justify-content-center justify-content-lg-evenly">
+            @foreach($departments as $department)
             <div class="col-auto col-md-4 col-lg-auto text-xl-start">
                 <div class="d-flex flex-column align-items-center">
                     <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/neurology.png')}}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/neurology.svg')}}" alt="..." />
-                            <p class="fs-1 fs-xxl-2 text-center">Neurology</p>
+                                class="mb-3 deparment-icon" src="{{ $department->avatar ? asset('avatars/' . $department->avatar) : asset('path/to/default/image.jpg') }}" alt="..." /><img
+                                class="mb-3 deparment-icon-hover" src="{{ $department->avatar ? asset('avatars/' . $department->avatar) : asset('path/to/default/image.jpg') }}" alt="..." />
+                            <p class="fs-1 fs-xxl-2 text-center">{{$department->name}}</p>
                         </a></div>
                 </div>
             </div>
-            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
-                <div class="d-flex flex-column align-items-center">
-                    <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/eye-care.png')}}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/eye-care.svg')}}" alt="..." />
-                            <p class="fs-1 fs-xxl-2 text-center">Eye care</p>
-                        </a></div>
-                </div>
-            </div>
-            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
-                <div class="d-flex flex-column align-items-center">
-                    <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/cardiac.png')}}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/cardiac.svg')}}" alt="..." />
-                            <p class="fs-1 fs-xxl-2 text-center">Cardiac care</p>
-                        </a></div>
-                </div>
-            </div>
-            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
-                <div class="d-flex flex-column align-items-center">
-                    <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/heart.png')}}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/heart.svg')}}" alt="..." />
-                            <p class="fs-1 fs-xxl-2 text-center">Heart care</p>
-                        </a></div>
-                </div>
-            </div>
-            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
-                <div class="d-flex flex-column align-items-center">
-                    <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/osteoporosis.png')}}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/osteoporosis.svg')}}" alt="..." />
-                            <p class="fs-1 fs-xxl-2 text-center">Osteoporosis</p>
-                        </a></div>
-                </div>
-            </div>
-            <div class="col-auto col-md-4 col-lg-auto text-xl-start">
-                <div class="d-flex flex-column align-items-center">
-                    <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{asset('web_asset/public/assets/img/icons/ent.png')}}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{asset('web_asset/public/assets/img/icons/ent.svg')}}" alt="..." />
-                            <p class="fs-1 fs-xxl-2 text-center">ENT</p>
-                        </a></div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <!-- end of .container-->
@@ -122,7 +79,7 @@
 
 <!-- ============================================-->
 <!-- <section> begin ============================-->
-<section class="pb-0" id="about">
+<!-- <section class="pb-0" id="about">
 
     <div class="container">
         <div class="row">
@@ -130,24 +87,22 @@
                 <div class="bg-holder bg-size"
                     style="background-image:url(assets/img/gallery/about-us.png);background-position:top center;background-size:contain;">
                 </div>
-                <!--/.bg-holder-->
+              
 
                 <h1 class="text-center">ABOUT US</h1>
             </div>
         </div>
     </div>
-    <!-- end of .container-->
+  
 
-</section>
-<!-- <section> close ============================-->
-<!-- ============================================-->
+</section> -->
 
 
 <section class="py-5">
     <div class="bg-holder bg-size"
         style="background-image:url(assets/img/gallery/about-bg.png);background-position:top center;background-size:contain;">
     </div>
-    <!--/.bg-holder-->
+  
 
     <div class="container">
         <div class="row align-items-center">
@@ -211,149 +166,23 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="10000">
                             <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
+                                @foreach($doctors as $doctor)
                                 <div class="col-md-4 mb-8 mb-md-0">
                                     <div class="card card-span h-100 shadow">
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="{{asset('web_asset/public/assets/img/gallery/anita.png')}}" width="128" alt="..." />
-                                            <h5 class="mt-3">Anita Deshai</h5>
-                                            <p class="mb-0 fs-xxl-1">Pediatrics, Gochi Medicine</p>
-                                            <p class="text-600 mb-0">Florida, United States</p>
+                                                src="{{ $doctor->avatar ? asset('avatars/' . $doctor->avatar) : asset('path/to/default/image.jpg') }}" width="128" alt="..." />
+                                            <h5 class="mt-3">{{$doctor->name}}</h5>
+                                            <p class="mb-0 fs-xxl-1">{{$doctor->department->name ?? ""}}</p>
+                                            <p class="text-600 mb-0">{{$doctor->country->name .','.$doctor->city->name }}</p>
                                             <p class="text-600 mb-4">10 years experience</p>
                                             <div class="text-center">
-                                                <button class="btn btn-outline-secondary rounded-pill"
-                                                    type="submit">View Profile</button>
+                                                <a href="{{url('/profile')}}"><button class="btn btn-outline-secondary rounded-pill"
+                                                    type="submit">View Profile</button></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-8 mb-md-0">
-                                    <div class="card card-span h-100 shadow">
-                                        <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="{{asset('web_asset/public/assets/img/gallery/jane.png')}}" width="128" alt="..." />
-                                            <h5 class="mt-3">Jane Flakis</h5>
-                                            <p class="mb-0 fs-xxl-1">Gynaecology, Abenka Care</p>
-                                            <p class="text-600 mb-0">Melbourne, Australia</p>
-                                            <p class="text-600 mb-4">12 years experience</p>
-                                            <div class="text-center">
-                                                <button class="btn btn-outline-secondary rounded-pill"
-                                                    type="submit">View Profile</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-8 mb-md-0">
-                                    <div class="card card-span h-100 shadow">
-                                        <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="{{asset('web_asset/public/assets/img/gallery/leo-mario.png')}}" width="128" alt="..." />
-                                            <h5 class="mt-3">Leo Mario</h5>
-                                            <p class="mb-0 fs-xxl-1">Physiotherapy, FitCare</p>
-                                            <p class="text-600 mb-0">London, England</p>
-                                            <p class="text-600 mb-4">25 years experience</p>
-                                            <div class="text-center">
-                                                <button class="btn btn-secondary hover-top rounded-pill border-0"
-                                                    type="submit">View Profile</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="2000">
-                            <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
-                                <div class="col-md-4 mb-8 mb-md-0">
-                                    <div class="card card-span h-100 shadow">
-                                        <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="{{asset('web_asset/public/assets/img/gallery/anita.png')}}" width="128" alt="..." />
-                                            <h5 class="mt-3">Anita Deshai</h5>
-                                            <p class="mb-0 fs-xxl-1">Pediatrics, Gochi Medicine</p>
-                                            <p class="text-600 mb-0">Florida, United States</p>
-                                            <p class="text-600 mb-4">10 years experience</p>
-                                            <div class="text-center">
-                                                <button class="btn btn-outline-secondary rounded-pill"
-                                                    type="submit">View Profile</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-8 mb-md-0">
-                                    <div class="card card-span h-100 shadow">
-                                        <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="{{asset('web_asset/public/assets/img/gallery/jane.png')}}" width="128" alt="..." />
-                                            <h5 class="mt-3">Jane Flakis</h5>
-                                            <p class="mb-0 fs-xxl-1">Gynaecology, Abenka Care</p>
-                                            <p class="text-600 mb-0">Melbourne, Australia</p>
-                                            <p class="text-600 mb-4">12 years experience</p>
-                                            <div class="text-center">
-                                                <button class="btn btn-outline-secondary rounded-pill"
-                                                    type="submit">View Profile</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-8 mb-md-0">
-                                    <div class="card card-span h-100 shadow">
-                                        <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="{{asset('web_asset/public/assets/img/gallery/leo-mario.png')}}" width="128" alt="..." />
-                                            <h5 class="mt-3">Leo Mario</h5>
-                                            <p class="mb-0 fs-xxl-1">Physiotherapy, FitCare</p>
-                                            <p class="text-600 mb-0">London, England</p>
-                                            <p class="text-600 mb-4">25 years experience</p>
-                                            <div class="text-center">
-                                                <button class="btn btn-secondary hover-top rounded-pill border-0"
-                                                    type="submit">View Profile</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
-                                <div class="col-md-4 mb-8 mb-md-0">
-                                    <div class="card card-span h-100 shadow">
-                                        <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="{{asset('web_asset/public/assets/img/gallery/anita.png')}}" width="128" alt="..." />
-                                            <h5 class="mt-3">Anita Deshai</h5>
-                                            <p class="mb-0 fs-xxl-1">Pediatrics, Gochi Medicine</p>
-                                            <p class="text-600 mb-0">Florida, United States</p>
-                                            <p class="text-600 mb-4">10 years experience</p>
-                                            <div class="text-center">
-                                                <button class="btn btn-outline-secondary rounded-pill"
-                                                    type="submit">View Profile</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-8 mb-md-0">
-                                    <div class="card card-span h-100 shadow">
-                                        <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="{{asset('web_asset/public/assets/img/gallery/jane.png')}}" width="128" alt="..." />
-                                            <h5 class="mt-3">Jane Flakis</h5>
-                                            <p class="mb-0 fs-xxl-1">Gynaecology, Abenka Care</p>
-                                            <p class="text-600 mb-0">Melbourne, Australia</p>
-                                            <p class="text-600 mb-4">12 years experience</p>
-                                            <div class="text-center">
-                                                <button class="btn btn-outline-secondary rounded-pill"
-                                                    type="submit">View Profile</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-8 mb-md-0">
-                                    <div class="card card-span h-100 shadow">
-                                        <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="{{asset('web_asset/public/assets/img/gallery/leo-mario.png')}}" width="128" alt="..." />
-                                            <h5 class="mt-3">Leo Mario</h5>
-                                            <p class="mb-0 fs-xxl-1">Physiotherapy, FitCare</p>
-                                            <p class="text-600 mb-0">London, England</p>
-                                            <p class="text-600 mb-4">25 years experience</p>
-                                            <div class="text-center">
-                                                <button class="btn btn-secondary hover-top rounded-pill border-0"
-                                                    type="submit">View Profile</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -587,10 +416,11 @@
 
     <div class="container">
         <div class="row">
+            @foreach($blogs as $blog)
             <div class="col-sm-6 col-lg-3 mb-4">
                 <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3"
-                        src="{{asset('web_asset/public/assets/img/gallery/covid-19.png')}}" alt="news" />
-                    <div class="card-body"><span class="fs--1 text-primary me-3">Health</span>
+                src="{{ $blog->avatar ? asset('avatars/' . $blog->avatar) : asset('path/to/default/image.jpg') }}" alt="news" />
+                    <div class="card-body"><span class="fs--1 text-primary me-3">{{$blog->title}}</span>
                         <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                             fill="currentColor" viewBox="0 0 16 16">
                             <path
@@ -599,66 +429,13 @@
                             <path
                                 d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z">
                             </path>
-                        </svg><span class="fs--1 text-900">Nov 21, 2021</span><span class="fs--1"></span>
-                        <h5 class="font-base fs-lg-0 fs-xl-1 my-3">COVID-19: The Most Up-to-Date Information</h5><a
-                            class="stretched-link" href="#!">read full article</a>
+                        </svg><span class="fs--1 text-900">{{$blog->created_at->format('d M, Y')}}</span><span class="fs--1"></span>
+                        <h5 class="font-base fs-lg-0 fs-xl-1 my-3">{{$blog->name}}</h5><a
+                            class="stretched-link" href="{{route('blog',[$blog->id])}}">read full article</a>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3 mb-4">
-                <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3"
-                        src="{{asset('web_asset/public/assets/img/gallery/laboratories.png')}}" alt="news" />
-                    <div class="card-body"><span class="fs--1 text-primary me-3">Lifestyle</span>
-                        <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z">
-                            </path>
-                            <path
-                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z">
-                            </path>
-                        </svg><span class="fs--1 text-900">Nov 25, 2021</span><span class="fs--1"></span>
-                        <h5 class="font-base fs-lg-0 fs-xl-1 my-3">Importance of Accreditation for Laboratories</h5><a
-                            class="stretched-link" href="#!">read full article</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3 mb-4">
-                <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3"
-                        src="{{asset('web_asset/public/assets/img/gallery/nicotine.png')}}" alt="news" />
-                    <div class="card-body"><span class="fs--1 text-primary me-3">Health</span>
-                        <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z">
-                            </path>
-                            <path
-                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z">
-                            </path>
-                        </svg><span class="fs--1 text-900">Nov 28, 2021</span><span class="fs--1"></span>
-                        <h5 class="font-base fs-lg-0 fs-xl-1 my-3">The dangers of nicotine are addressed in depth</h5><a
-                            class="stretched-link" href="#!">read full article</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3 mb-4">
-                <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3"
-                        src="{{asset('web_asset/public/assets/img/gallery/treatment.png')}}" alt="news" />
-                    <div class="card-body"><span class="fs--1 text-primary me-3">Health</span>
-                        <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z">
-                            </path>
-                            <path
-                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z">
-                            </path>
-                        </svg><span class="fs--1 text-900">Nov 30, 2021</span><span class="fs--1"></span>
-                        <h5 class="font-base fs-lg-0 fs-xl-1 my-3">Treatment of patients with diabetes during COVID-19
-                        </h5><a class="stretched-link" href="#!">read full article</a>
-                    </div>
-                </div>
-            </div>
+                @endforeach
         </div>
     </div>
 </section>
@@ -694,76 +471,7 @@
         </div>
     </div>
 </section>
-<section class="py-0 bg-secondary">
-    <div class="bg-holder opacity-25"
-        style="background-image:url(assets/img/gallery/dot-bg.png);background-position:top left;margin-top:-3.125rem;background-size:auto;">
-    </div>
-    <!--/.bg-holder-->
 
-    <div class="container">
-        <div class="row py-8">
-            <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0"><a class="text-decoration-none" href="#"><img
-                        src="{{asset('web_asset/public/assets/img/gallery/footer-logo.png')}}" height="51" alt="" /></a>
-                <p class="text-light my-4">The world's most trusted <br />telehealth company.</p>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
-                <h5 class="lh-lg fw-bold mb-4 text-light font-sans-serif">Departments</h5>
-                <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    <li class="lh-lg"><a class="footer-link" href="#!">Eye care</a></li>
-                    <li class="lh-lg"><a class="footer-link" href="#!">Cardiac are</a></li>
-                    <li class="lh-lg"><a class="footer-link" href="#!">Heart care</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
-                <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif">Membership</h5>
-                <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    <li class="lh-lg"><a class="footer-link" href="#!">Free trial</a></li>
-                    <li class="lh-lg"><a class="footer-link" href="#!">Silver</a></li>
-                    <li class="lh-lg"><a class="footer-link" href="#!">Premium</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
-                <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif"> Customer Care</h5>
-                <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    <li class="lh-lg"><a class="footer-link" href="#!">About Us</a></li>
-                    <li class="lh-lg"><a class="footer-link" href="#!">Contact US</a></li>
-                    <li class="lh-lg"><a class="footer-link" href="#!">Get Update</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- ============================================-->
-    <!-- <section> begin ============================-->
-    <section class="py-0 bg-primary">
-
-        <div class="container">
-            <div class="row justify-content-md-between justify-content-evenly py-4">
-                <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
-                    <p class="fs--1 my-2 fw-bold text-200">All rights Reserved &copy; Your Company, 2021</p>
-                </div>
-                <div class="col-12 col-sm-8 col-md-6">
-                    <p class="fs--1 my-2 text-center text-md-end text-200"> Made with&nbsp;
-                        <svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
-                            fill="#F95C19" viewBox="0 0 16 16">
-                            <path
-                                d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z">
-                            </path>
-                        </svg>&nbsp;by&nbsp;<a class="fw-bold text-info" href="https://themewagon.com/"
-                            target="_blank">ThemeWagon </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <!-- end of .container-->
-
-    </section>
-    <!-- <section> close ============================-->
-    <!-- ============================================-->
-
-
-</section>
 </main>
 <!-- ===============================================-->
 <!--    End of Main Content-->
