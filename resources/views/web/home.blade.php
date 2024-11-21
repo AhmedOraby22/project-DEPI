@@ -37,8 +37,11 @@
             <div class="col-auto col-md-4 col-lg-auto text-xl-start">
                 <div class="d-flex flex-column align-items-center">
                     <div class="icon-box text-center"><a class="text-decoration-none" href="#!"><img
-                                class="mb-3 deparment-icon" src="{{ $department->avatar ? asset('avatars/' . $department->avatar) : asset('path/to/default/image.jpg') }}" alt="..." /><img
-                                class="mb-3 deparment-icon-hover" src="{{ $department->avatar ? asset('avatars/' . $department->avatar) : asset('path/to/default/image.jpg') }}" alt="..." />
+                                class="mb-3 deparment-icon"
+                                src="{{ $department->avatar ? asset('avatars/' . $department->avatar) : asset('path/to/default/image.jpg') }}"
+                                alt="..." /><img class="mb-3 deparment-icon-hover"
+                                src="{{ $department->avatar ? asset('avatars/' . $department->avatar) : asset('path/to/default/image.jpg') }}"
+                                alt="..." />
                             <p class="fs-1 fs-xxl-2 text-center">{{$department->name}}</p>
                         </a></div>
                 </div>
@@ -61,7 +64,8 @@
 
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-5 col-xxl-6"><img class="img-fluid" src="{{asset('web_asset/public/assets/img/gallery/eye-care.png')}}" alt="..." />
+            <div class="col-md-5 col-xxl-6"><img class="img-fluid"
+                    src="{{asset('web_asset/public/assets/img/gallery/eye-care.png')}}" alt="..." />
             </div>
             <div class="col-md-7 col-xxl-6 text-center text-md-start">
                 <h2 class="fw-bold text-light mb-4 mt-4 mt-lg-0">Eye Care with Top Professionals<br
@@ -87,13 +91,13 @@
                 <div class="bg-holder bg-size"
                     style="background-image:url(assets/img/gallery/about-us.png);background-position:top center;background-size:contain;">
                 </div>
-              
+
 
                 <h1 class="text-center">ABOUT US</h1>
             </div>
         </div>
     </div>
-  
+
 
 </section> -->
 
@@ -102,7 +106,7 @@
     <div class="bg-holder bg-size"
         style="background-image:url(assets/img/gallery/about-bg.png);background-position:top center;background-size:contain;">
     </div>
-  
+
 
     <div class="container">
         <div class="row align-items-center">
@@ -170,14 +174,17 @@
                                 <div class="col-md-4 mb-8 mb-md-0">
                                     <div class="card card-span h-100 shadow">
                                         <div class="card-body d-flex flex-column flex-center py-5"><img
-                                                src="{{ $doctor->avatar ? asset('avatars/' . $doctor->avatar) : asset('path/to/default/image.jpg') }}" width="128" alt="..." />
+                                                src="{{ $doctor->avatar ? asset('avatars/' . $doctor->avatar) : asset('path/to/default/image.jpg') }}"
+                                                width="128" alt="..." />
                                             <h5 class="mt-3">{{$doctor->name}}</h5>
                                             <p class="mb-0 fs-xxl-1">{{$doctor->department->name ?? ""}}</p>
-                                            <p class="text-600 mb-0">{{$doctor->country->name .','.$doctor->city->name }}</p>
+                                            <p class="text-600 mb-0">
+                                                {{$doctor->country->name .','.$doctor->city->name }}</p>
                                             <p class="text-600 mb-4">10 years experience</p>
                                             <div class="text-center">
-                                                <a href="{{url('/profile')}}"><button class="btn btn-outline-secondary rounded-pill"
-                                                    type="submit">View Profile</button></a>
+                                                <a href="{{url('/profile')}}"><button
+                                                        class="btn btn-outline-secondary rounded-pill"
+                                                        type="submit">View Profile</button></a>
                                             </div>
                                         </div>
                                     </div>
@@ -228,7 +235,8 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="10000">
                         <div class="row h-100">
-                            <div class="col-sm-3 text-center"><img src="{{asset('web_asset/public/assets/img/gallery/people-who-loves.png')}}"
+                            <div class="col-sm-3 text-center"><img
+                                    src="{{asset('web_asset/public/assets/img/gallery/people-who-loves.png')}}"
                                     width="100" alt="" />
                                 <h5 class="mt-3 fw-medium text-secondary">Edward Newgate</h5>
                                 <p class="fw-normal mb-0">Founder Circle</p>
@@ -250,7 +258,8 @@
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
                         <div class="row h-100">
-                            <div class="col-sm-3 text-center"><img src="{{asset('web_asset/public/assets/img/gallery/people-who-loves.png')}}"
+                            <div class="col-sm-3 text-center"><img
+                                    src="{{asset('web_asset/public/assets/img/gallery/people-who-loves.png')}}"
                                     width="100" alt="" />
                                 <h5 class="mt-3 fw-medium text-secondary">Jhon Doe</h5>
                                 <p class="fw-normal mb-0">UI/UX Designer</p>
@@ -272,7 +281,8 @@
                     </div>
                     <div class="carousel-item">
                         <div class="row h-100">
-                            <div class="col-sm-3 text-center"><img src="{{asset('web_asset/public/assets/img/gallery/people-who-loves.png')}}"
+                            <div class="col-sm-3 text-center"><img
+                                    src="{{asset('web_asset/public/assets/img/gallery/people-who-loves.png')}}"
                                     width="100" alt="" />
                                 <h5 class="mt-3 fw-medium text-secondary">Jeny Doe</h5>
                                 <p class="fw-normal mb-0">Web Designer</p>
@@ -419,7 +429,8 @@
             @foreach($blogs as $blog)
             <div class="col-sm-6 col-lg-3 mb-4">
                 <div class="card h-100 shadow card-span rounded-3"><img class="card-img-top rounded-top-3"
-                src="{{ $blog->avatar ? asset('avatars/' . $blog->avatar) : asset('path/to/default/image.jpg') }}" alt="news" />
+                        src="{{ $blog->avatar ? asset('avatars/' . $blog->avatar) : asset('path/to/default/image.jpg') }}"
+                        alt="news" />
                     <div class="card-body"><span class="fs--1 text-primary me-3">{{$blog->title}}</span>
                         <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
                             fill="currentColor" viewBox="0 0 16 16">
@@ -429,13 +440,14 @@
                             <path
                                 d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z">
                             </path>
-                        </svg><span class="fs--1 text-900">{{$blog->created_at->format('d M, Y')}}</span><span class="fs--1"></span>
-                        <h5 class="font-base fs-lg-0 fs-xl-1 my-3">{{$blog->name}}</h5><a
-                            class="stretched-link" href="{{route('blog',[$blog->id])}}">read full article</a>
+                        </svg><span class="fs--1 text-900">{{$blog->created_at->format('d M, Y')}}</span><span
+                            class="fs--1"></span>
+                        <h5 class="font-base fs-lg-0 fs-xl-1 my-3">{{$blog->name}}</h5><a class="stretched-link"
+                            href="{{route('blog',[$blog->id])}}">read full article</a>
                     </div>
                 </div>
             </div>
-                @endforeach
+            @endforeach
         </div>
     </div>
 </section>

@@ -33,7 +33,7 @@ use App\Http\Controllers\SearchController;
 
 
 
-   
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 // Route for the about us page
@@ -82,18 +82,18 @@ Route::middleware('auth:admin')->group(function()
     // Route::view('/add_city','web.form.city');
 
     Route::post('/add_city',[CityController::class,'create']);
-    
+
     Route::get('/show_city',[CityController::class,'show']);
-    
+
     Route::get('/delete_city/{id}',[CityController::class,'destroy']);
     Route::get('/edit_city/{id}',[CityController::class,'edit']);
     Route::put('update-city/{id}',[CityController::class,'update']);
-    
-    
+
+
     Route::get('delete_country/{id}',[CountryController::class,'destroy']);
     Route::get('edit_country/{id}',[CountryController::class,'edit']);
     Route::put('update-country/{id}',[CountryController::class,'update']);
-    
+
 
 });
 
@@ -120,17 +120,24 @@ Route::get('/search',[SearchController::class, 'index'])->name('search');
 
 Route::post('/search',[SearchController::class, 'show'])->name('search-d');
 
-Route::get('/department-doctors', function () {
-    return view('web.departmentdoctors');
+Route::get('/Neurology', function () {
+    return view('web.Neurology');
 });
 
-Route::get('/department-doctors2', function () {
-    return view('web.departmentdoctors2');
+Route::get('/Osteoporosis', function () {
+    return view('web.Osteoporosis');
 });
 
+
+Route::get('/Heartcare', function () {
+    return view('web.Heartcare');
+});
+
+Route::get('/Eyecare', function () {
+    return view('web.Eyecare');
+});
 Route::view('/department','web.departement')->name('dep');
 
 Route::get('/faq',[FaqController::class, 'index'])->name('faq.show');
 
 Route::post('/faq_post',[FaqController::class, 'store'])->name('faq.store');
-
