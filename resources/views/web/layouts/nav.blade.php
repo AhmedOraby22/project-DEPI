@@ -6,11 +6,18 @@
               <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{{route('about-us')}}">About Us</a></li>
               <li class="nav-item px-2"><a class="nav-link" href="{{route('home')}}#departments">Departments</a></li>
 
+
               <li class="nav-item px-2"><a class="nav-link" href="{{route('web.faqs.index')}}">F&Q</a></li>
               <li class="nav-item px-2"><a class="nav-link" href="{{route('reservation.store')}}">APPOINTMENT</a></li>
 
               <li class="nav-item px-2"><a class="nav-link" href="{{route('search')}}">search</a></li>
-   
+ 
+              {{-- <li class="nav-item px-2"><a class="nav-link" href="{{route('web.faqs.index')}}">F&Q</a></li> --}}
+              <li class="nav-item px-2"><a class="nav-link" href="{{route('reservation.store')}}">APPINTMENT</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="{{route('search')}}">search</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="{{route('faq.show')}}">F&Q</a></li>
+
+>>>>>>> e49d0022293cd62dac293a14f74eef7230dafbc4
 
             </ul>
               @if(Auth::id())
